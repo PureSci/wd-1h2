@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" style="margin:0; width: 100%; height:100%">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Toolbox</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three/examples/jsm/"
+        }
+      }
+    </script>
+</head>
+
+<body style="margin:0; width: 100%; height:100%">
+    <canvas id="dvdlayer" class="absolute w-full h-full z-40"></canvas>
+    <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <a href="#" class="flex flex-shrink-0 items-center">
+                        <img class="h-8 w-auto" src="icon.png">
+                    </a>
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                            <a href="#"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                                aria-current="page">Dashboard</a>
+                            <a href="#"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Team</a>
+                            <a href="#"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
+                            <a href="#"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Calendar</a>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 w-20">
+                    <div class="relative ml-3 flex-row flex items-center gap-5">
+                        <div class="text-white text-base font-medium">
+                            test
+                        </div>
+                        <img class="rounded-full w-12 h-12" src="https://cataas.com/cat?width=100&height=100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script type="module" src="scripts/three.js"></script>
+    <script type="module" src="scripts/main.js"></script>
+</body>
+
+</html>
