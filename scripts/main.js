@@ -14,19 +14,17 @@ window.addEventListener("load", () => {
         images.push(img);
     });
 
-    const imageWidth = 100;
-    const imageHeight = 50;
+    const imageWidth = 210;
+    const imageHeight = 105;
 
     let x = canvas.width - imageWidth;
     let y = canvas.height - imageHeight;
 
     const fps = 60;
     const time = 3 * fps; // 3 seconds in miliseconds
-    const speed = 20; // second factor
+    const speed = 10; // second factor
 
     let direction = 0; // 0: left-up, 1: left-down, 2: right-down, 3: right-up
-
-    let lastBump;
 
     const move = (reverse = false, noBounce = false) => {
         if (direction == 0) {
@@ -44,13 +42,11 @@ window.addEventListener("load", () => {
         }
         if (!noBounce) {
             let happening = 0;
-            if (x < 0) happening = 1;
-            else if (x > canvas.width - imageWidth) happening = 2;
-            else if (y < 0) happening = 3;
-            else if (y > canvas.height - imageHeight) happening = 4;
-            console.log(happening, lastBump)
-            if (happening > 0 && lastBump && happening !== lastBump) {
-                lastBump = happening;
+            if (x <= 0) happening = 1;
+            else if (x >= canvas.width - imageWidth) happening = 2;
+            else if (y <= 0) happening = 3;
+            else if (y >= canvas.height - imageHeight) happening = 4;
+            if (happening > 0) {
                 revertDirection();
                 move(false, true);
                 revertDirection();
