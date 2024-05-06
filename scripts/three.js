@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
+initThree();
 
 function initThree() {
     let isPaused = false;
@@ -73,7 +74,6 @@ function initThree() {
             isPaused = false;
         }, 2000);
     };
-
     controls.addEventListener('start', pauseAnimation);
     controls.addEventListener('end', () => {
         pauseAnimation();
