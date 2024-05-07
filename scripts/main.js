@@ -1,4 +1,5 @@
 window.addEventListener("load", () => {
+    return;
     const imagesSrc = ['blue.png', 'magenta.png', 'yellow.png'];
     const images = [];
     let currentImageIndex = 0;
@@ -109,3 +110,14 @@ window.addEventListener("load", () => {
     revertDirection();
     draw();
 });
+
+function toggleDisplay() {
+    var box = document.getElementById('infoBox');
+    if (box.classList.contains('translate-x-full')) {
+        box.classList.remove('translate-x-full');
+        box.classList.add('translate-x-0'); // Slide in
+    } else {
+        box.classList.remove('translate-x-0');
+        box.classList.add('translate-x-full'); // Slide out
+    }
+}
