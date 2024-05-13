@@ -115,9 +115,9 @@ function toggleDisplay() {
     var box = document.getElementById('infoBox');
     if (box.classList.contains('translate-x-full')) {
         box.classList.remove('translate-x-full');
-        box.classList.add('translate-x-0'); // Slide in
+        box.classList.add('translate-x-14'); // Slide in
     } else {
-        box.classList.remove('translate-x-0');
+        box.classList.remove('translate-x-14');
         box.classList.add('translate-x-full'); // Slide out
     }
 }
