@@ -7,7 +7,8 @@
     <title>The Chicken Markt</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
-
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/png" href="public/logo.png">
     <script type="importmap">
       {
         "imports": {
@@ -19,22 +20,167 @@
 </head>
 
 <body style="margin:0; width: 100%; height:100%">
+    <div id="errorModal" class="modal z-10">
+        <div
+            class="mt-10 flex items-center rounded shadow-md overflow-hidden max-w-xl relative bg-gray-900 text-gray-100">
+            <div class="self-stretch flex items-center px-3 flex-shrink-0 bg-gray-700 text-red-400">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    class="h-8 w-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <div class="p-4 flex-1">
+                <h3 class="text-xl font-bold">Error</h3>
+                <p id="errorcontext" class="text-sm text-gray-400">The password is incorrect. Do you need to
+                    <a href="#" rel="referrer noopener" class="underline">recover your password?</a>
+                </p>
+            </div>
+            <button class="absolute top-2 right-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                    class="h-4 w-4 p-2 rounded cursor-pointer">
+                    <path fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div id="loginmodal" class="modal">
+        <div>
+            <div class="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-900 text-gray-100">
+                <div class="mb-8 text-center">
+                    <h1 class="my-3 text-4xl font-bold">Login</h1>
+                    <p class="text-sm text-gray-400">Login to access your chickens</p>
+                </div>
+                <div class="space-y-12">
+                    <div class="space-y-4">
+                        <div>
+                            <label for="email" class="block mb-2 text-sm">Email address</label>
+                            <input type="email" name="email" id="email" placeholder="crest@chicken.com"
+                                class="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100">
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label for="password" class="text-sm">Password</label>
+                                <button onclick="troll(this, 'Skill issue!')"
+                                    class="text-xs hover:underline text-gray-400">Forgot
+                                    password?</button>
+                            </div>
+                            <input type="password" name="password" id="password" placeholder="*****"
+                                class="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div>
+                            <button type="button"
+                                class="w-full px-8 py-3 font-semibold rounded-md bg-red-400 text-gray-900">Login</button>
+                        </div>
+                        <p class="px-6 text-sm text-center text-gray-400">Don't have an account yet?
+                            <button onclick="loadModal('registermodal')"
+                                class="hover:underline text-red-400">Register</button>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="registermodal" class="modal">
+        <div class="p-6 bg-gray-800 text-gray-50 h-fit rounded-md">
+            <div class="container flex flex-col mx-auto space-y-6">
+                <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-900">
+                    <div class="space-y-2 col-span-full lg:col-span-1">
+                        <p class="font-medium">Profile</p>
+                    </div>
+                    <div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+                        <div class="col-span-full w-[49.3%]">
+                            <label for="username" class="text-sm">Username</label>
+                            <input id="username" type="text" placeholder="Username"
+                                class="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-red-400 border-gray-700">
+                        </div>
+                        <div class="col-span-full sm:col-span-3">
+                            <label for="email" class="text-sm">Email address</label>
+                            <input id="register-email" type="email" placeholder="crest@chicken.com"
+                                class="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-red-400 border-gray-700">
+                        </div>
+                        <div class="col-span-full sm:col-span-3">
+                            <label for="password" class="text-sm">Password</label>
+                            <input id="register-password" type="password" placeholder="*****"
+                                class="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-red-400 border-gray-700">
+                        </div>
+                        <div class="col-span-full">
+                            <label class="text-sm">Photo</label>
+                            <div class="flex items-center space-x-2">
+                                <img id="photoimg" class="w-20 h-20 rounded-full bg-gray-700">
+                                <button type="button" class="px-4 py-2 border rounded-md border-gray-100"
+                                    onclick="changePhoto()">Change</button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-900">
+                    <div class="space-y-2 col-span-full lg:col-span-1">
+                        <p class="font-medium">Personal Information</p>
+                        <p class="text-xs">Give us some real information about yourself so we can send your chicken
+                            to
+                            your door!</p>
+                    </div>
+                    <div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+                        <div class="col-span-full sm:col-span-3">
+                            <label for="firstname" class="text-sm">First name</label>
+                            <input id="firstname" type="text" placeholder="First name"
+                                class="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-red-400 border-gray-700">
+                        </div>
+                        <div class="col-span-full sm:col-span-3">
+                            <label for="lastname" class="text-sm">Last name</label>
+                            <input id="lastname" type="text" placeholder="Last name"
+                                class="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-red-400 border-gray-700">
+                        </div>
+                        <div class="col-span-full">
+                            <label for="address" class="text-sm">Address</label>
+                            <input id="address" type="text" placeholder=""
+                                class="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-red-400 border-gray-700">
+                        </div>
+                        <div class="col-span-full sm:col-span-2">
+                            <label for="city" class="text-sm">City</label>
+                            <input id="city" type="text" placeholder=""
+                                class="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-red-400 border-gray-700">
+                        </div>
+                        <div class="col-span-full sm:col-span-2">
+                            <label for="state" class="text-sm">State / Province</label>
+                            <input id="state" type="text" placeholder=""
+                                class="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-red-400 border-gray-700">
+                        </div>
+                        <div class="col-span-full sm:col-span-2">
+                            <label for="zip" class="text-sm">ZIP / Postal</label>
+                            <input id="zip" type="text" placeholder=""
+                                class="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-red-400 border-gray-700">
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="justify-center flex">
+                    <button onclick="register()"
+                        class="px-6 py-2 font-semibold rounded lg:block bg-red-400 text-gray-900 w-auto">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <header class="p-4 bg-gray-800 text-gray-100">
-        <div class="container flex justify-between h-16 mx-auto">
+        <div class="flex h-16 justify-between mx-10">
             <div class="flex gap-5">
                 <a rel="noopener noreferrer" href="#" aria-label="Back to homepage" class="flex items-center p-2">
-                    <img src="logo.png" class="w-14 h-14">
+                    <img src="public/logotext.png" class="w-auto h-14">
                 </a>
                 <ul class="items-stretch hidden space-x-3 lg:flex">
                     <li class="flex">
-                        <a rel="noopener noreferrer" href="#" class="flex items-center px-4 -mb-1 text-red-400">Link</a>
+                        <a rel="noopener noreferrer" href="#"
+                            class="flex items-center px-4 -mb-1 text-red-400">Chickens</a>
                     </li>
                     <li class="flex">
-                        <a rel="noopener noreferrer" href="#" class="flex items-center px-4 -mb-1">Link</a>
-                    </li>
-                    <li class="flex">
-                        <a rel="noopener noreferrer" href="#" class="flex items-center px-4 -mb-1">Link</a>
+                        <a rel="noopener noreferrer" href="#" class="flex items-center px-4 -mb-1">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -49,17 +195,18 @@
                             </svg>
                         </button>
                     </span>
-                    <input type="search" name="Search" placeholder="Search..."
-                        class="w-32 py-2 pl-10 text-sm outline-gray-400 outline outline-1 rounded-md sm:w-96 focus:outline-blue-500 bg-gray-800 text-gray-100 focus:bg-gray-900 ">
+                    <input type="search" name="Search" placeholder="Search a chicken..."
+                        class="w-32 py-2 pl-10 text-sm outline-gray-400 outline outline-1 rounded-md sm:w-[45rem] focus:outline-blue-500 bg-gray-800 text-gray-100 focus:bg-gray-900 ">
                 </div>
             </div>
             <div class="flex items-center md:space-x-4">
-                <button type="button"
-                    class="hidden px-6 py-2 font-semibold rounded lg:block bg-red-400 text-gray-900">Log in</button>
+                <button type="button" onclick="loadModal('loginmodal')"
+                    class="hidden px-6 py-2 font-semibold rounded lg:block bg-red-400 text-gray-900 w-auto">Login</button>
             </div>
         </div>
     </header>
     <script type="module" src="scripts/three.js"></script>
+    <script src="scripts/main.js"></script>
 </body>
 
 </html>

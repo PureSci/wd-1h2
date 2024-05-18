@@ -2,9 +2,12 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-initThree();
-
-function initThree() {
+/**
+ * Renders a 3D model in the given container.
+ * @param {string} model 
+ * @param {HTMLElement} container 
+ */
+function render3D(model, container) {
     let isPaused = false;
     let pauseTimeout;
 
@@ -15,7 +18,7 @@ function initThree() {
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setClearColor(0x000000, 0);
     renderer.setSize(1000, 700);
-    document.body.appendChild(renderer.domElement);
+    container.appendChild(renderer.domElement);
 
     const ambientLight = new THREE.AmbientLight(0x404040);
     scene.add(ambientLight);
@@ -36,7 +39,7 @@ function initThree() {
     controls.update();
 
     const loader = new GLTFLoader();
-    loader.load('Toolbox.glb', function (gltf) {
+    loader.load(model, function (gltf) {
         gltf.scene.rotation.y = THREE.MathUtils.degToRad(-90);
         gltf.scene.position.y = -3.5;
         scene.add(gltf.scene);
