@@ -1,6 +1,44 @@
 const currentUser = window.localStorage.getItem("currentUser");
 if (currentUser) {
+    const pfp = window.localStorage.getItem(currentUser + 'photo');
+    document.getElementById('cartsvg').style.display = "block";
+    document.getElementById('historysvg').style.display = "block";
+    document.getElementById('navbarloginbutton').style.display = "none";
+    document.getElementById('pfpcircle').src = pfp;
+    document.getElementById('pfpcircle').style.display = "block";
+}
 
+function showProfileDropdown() {
+    const element = document.getElementById('profileDropdown');
+    if (element.style.display === "block") {
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+    }
+}
+
+window.addEventListener("click", function (event) {
+    if (!event.target.matches("#pfpcircle") && !event.target.matches('#profileDropdown')) {
+        document.getElementById("profileDropdown").style.display = "none";
+    }
+});
+
+function login() {
+    const email = getElement('login-email', "Email");
+    const password = getElement('login-password', "Password");
+    if ((!email) || !password) {
+        return;
+    }
+    const user = window.localStorage.getItem(email);
+    if (!user) return error("Email or password is incorrect!");
+    if (window.localStorage.getItem(user + 'password') !== password) return error("Email or password is incorrect!");
+    window.localStorage.setItem("currentUser", user);
+    window.location.reload();
+}
+
+function logout() {
+    window.localStorage.removeItem("currentUser");
+    window.location.reload();
 }
 
 function troll(element, text) {
@@ -14,8 +52,7 @@ function troll(element, text) {
 function register() {
     const username = getElement('username', "Username");
     if (window.localStorage.getItem(username) === "true") {
-        document.getElementById("errorcontext").innerHTML = `Username ${username} is taken!`;
-        loadModal("errorModal", true);
+        error(`Username ${username} is taken!`);
         return;
     }
     const password = getElement('register-password', "Password");
@@ -27,10 +64,11 @@ function register() {
     const city = getElement('city', "City");
     const state = getElement('state', "State / Province");
     const zip = getElement('zip', "Zip / Postal");
-    if (username || password || email || firstName || lastName || address || city || state || zip) {
+    if ((!username) || !password || !email || !firstName || !lastName || !address || !city || !state || !zip) {
         return;
     }
     window.localStorage.setItem(username, "true");
+    window.localStorage.setItem(email, username);
     window.localStorage.setItem("currentUser", username);
     window.localStorage.setItem(username + 'username', username);
     window.localStorage.setItem(username + 'password', password);
@@ -45,14 +83,18 @@ function register() {
     window.location.reload();
 }
 
+function error(content) {
+    document.getElementById("errorcontext").innerHTML = content;
+    loadModal("errorModal", true);
+}
+
 function getElement(name, fancyName) {
     const element = document.getElementById(name).value;
     if (element.length < 1) {
-        document.getElementById("errorcontext").innerHTML = `<b>${fancyName}</b> field can't be empty!`;
-        loadModal("errorModal", true);
-        return true;
+        error(`<b>${fancyName}</b> field can't be empty!`);
+        return false;
     }
-    return false;
+    return element;
 }
 
 async function changePhoto() {
