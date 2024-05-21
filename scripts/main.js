@@ -51,12 +51,18 @@ function troll(element, text) {
 
 function register() {
     const username = getElement('username', "Username");
+    if (!username) return;
     if (window.localStorage.getItem(username) === "true") {
         error(`Username ${username} is taken!`);
         return;
     }
-    const password = getElement('register-password', "Password");
     const email = getElement('register-email', "Email");
+    if (!email) return;
+    if (!(!window.localStorage.getItem(email))) {
+        error(`Email ${email} is taken!`);
+        return;
+    }
+    const password = getElement('register-password', "Password");
     const photo = document.getElementById('photoimg').src;
     const firstName = getElement('firstname', "First name");
     const lastName = getElement('lastname', "Last name");
@@ -64,7 +70,7 @@ function register() {
     const city = getElement('city', "City");
     const state = getElement('state', "State / Province");
     const zip = getElement('zip', "Zip / Postal");
-    if ((!username) || !password || !email || !firstName || !lastName || !address || !city || !state || !zip) {
+    if ((!password) || !email || !firstName || !lastName || !address || !city || !state || !zip) {
         return;
     }
     window.localStorage.setItem(username, "true");
@@ -128,3 +134,10 @@ window.onclick = function (event) {
         event.target.style.display = "none";
     }
 }
+
+function startReference() {
+    setTimeout(() => {
+
+    }, Math.floor(Math.random() * 50_000) + 10_000);
+}
+startReference();

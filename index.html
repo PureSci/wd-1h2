@@ -19,7 +19,7 @@
     </script>
 </head>
 
-<body style="margin:0; width: 100%; height:100%" x-data="{
+<body style="margin:0; width: 100%; height:100%" class="bg-gray-800" x-data="{
     page:'home'
 }">
     <div id="errorModal" class="modal z-10">
@@ -170,20 +170,19 @@
         </div>
     </div>
 
+    <!-- Header (Navbar) -->
     <header class="p-4 bg-gray-800 text-gray-100">
         <div class="flex h-16 justify-between mx-10">
             <div class="flex gap-5 min-w-96">
-                <a @click="page='amogus'" rel="noopener noreferrer" href="#" aria-label="Back to homepage"
-                    class="flex items-center p-2">
+                <button @click="page='home'" aria-label="Back to homepage" class="flex items-center p-2">
                     <img src="public/logotext.png" class="w-auto h-14">
-                </a>
+                </button>
                 <ul class="items-stretch hidden space-x-3 lg:flex">
                     <li class="flex">
-                        <a rel="noopener noreferrer" href="#"
-                            class="flex items-center px-4 -mb-1 text-red-400">Chickens</a>
+                        <div @click="page='chickens'" class="flex items-center px-4 -mb-1 text-red-400">Chickens</div>
                     </li>
                     <li class="flex">
-                        <a rel="noopener noreferrer" href="#" class="flex items-center px-4 -mb-1">Contact</a>
+                        <div @click="page='contact'" class="flex items-center px-4 -mb-1">Contact</div>
                     </li>
                 </ul>
             </div>
@@ -230,7 +229,7 @@
 
     <!-- Main Page -->
     <section x-show="page == 'home'" class="bg-gray-800 text-gray-100">
-        <div class="container max-w-xl p-6 py-12 mx-auto space-y-14 lg:px-8 lg:max-w-7xl">
+        <section class="container max-w-xl p-6 py-12 mx-auto space-y-14 lg:px-8 lg:max-w-7xl">
             <div>
                 <h2 class="text-3xl font-bold tracking-tight text-center sm:text-5xl text-gray-50">World's <span
                         class="numberone">Number 1</span>
@@ -241,7 +240,8 @@
                     class="cursor-pointer flex gap-2 items-center text-lg justify-center mt-5">
                     <span class="h-fit font-bold">Excellent</span>
                     <svg role="img" viewBox="0 0 251 46" xmlns="http://www.w3.org/2000/svg" class="max-h-10">
-                        <title id="starRating-7zni0qkzxcp" lang="en">4.9 out of five star rating on Trustpilot</title>
+                        <title id="starRating-7zni0qkzxcp" lang="en">4.9 out of five star rating on Trustpilot
+                        </title>
                         <g class="tp-star">
                             <path class="tp-star__canvas" fill="#01b67b" d="M0 46.330002h46.375586V0H0z"></path>
                             <path class="tp-star__shape"
@@ -434,26 +434,612 @@
                     </div>
                 </div>
             </div>
+        </section>
+        <!-- Endless Slider -->
+        <div class="flex justify-center mt-5">
+            <div class="flex flex-col w-[50%] gap-2">
+                <div class="text-4xl font-bold flex justify-between">
+                    <div><span class="loved">Loved</span> by people you know</div>
+                    <div class="flex items-center space-x-2 text-yellow-500 pr-20">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 fill-current"
+                            viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path
+                                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+                        </svg>
+                        <span class="text-2xl font-bold">5.0</span>
+                    </div>
+                </div>
+                <p class="text-gray-400">The Chicken Markt has managed to get over 1 million chickens adopted with a
+                    unprecedented
+                    satisfaction rate of 100%.</p>
+            </div>
         </div>
+        <section x-data="{}" x-init="$nextTick(() => {
+            let ul = $refs.logos;
+            ul.insertAdjacentHTML('afterend', ul.outerHTML);
+            ul.nextSibling.setAttribute('aria-hidden', 'true');
+        })"
+            class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)] mt-10 mb-14">
+            <ul x-ref="logos"
+                class="flex items-center justify-center md:justify-start animate-infinite-scroll [&_li]:mx-8 [&_li]:w-[464px] [&_li]:h-[300px]">
+                <li
+                    class="mx-8 container flex flex-col w-full max-w-lg p-6 divide-y rounded-md divide-gray-700 bg-gray-900 text-gray-100">
+                    <div class="flex justify-between p-4">
+                        <div class="flex space-x-4">
+                            <div>
+                                <img src="public/reviews/1.jpeg" alt=""
+                                    class="object-cover w-12 h-12 rounded-full bg-gray-500">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Dr. Beatrice Featherstone</h4>
+                                <span class="text-xs text-gray-400">2 days ago</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 text-yellow-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current"
+                                viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                <path
+                                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+                            </svg>
+                            <span class="text-xl font-bold">5.0</span>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-2 text-sm text-gray-400">
+                        <p>As a leading avian psychologist, I can confidently say that adopting Cluck Norris from The
+                            Chicken Markt has been one of the most rewarding decisions of my career. His exceptional
+                            intelligence and calm demeanor have made him an invaluable assistant in my research on avian
+                            cognitive behavior. Five stars for this remarkable service!</p>
+                    </div>
+                </li>
+                <li
+                    class="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-900 text-gray-100">
+                    <div class="flex justify-between p-4">
+                        <div class="flex space-x-4">
+                            <div>
+                                <img src="public/reviews/2.jpeg" alt=""
+                                    class="object-cover w-12 h-12 rounded-full bg-gray-500">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Jonathan Eggbert, Esq.</h4>
+                                <span class="text-xs text-gray-400">4 days ago</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 text-yellow-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current"
+                                viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                <path
+                                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+                            </svg>
+                            <span class="text-xl font-bold">5.0</span>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-2 text-sm text-gray-400">
+                        <p>The Chicken Markt offers an unparalleled experience in chicken companionship. My acquisition
+                            of
+                            Henrietta Plucker has brought an unexpected level of joy and productivity to my law
+                            practice.
+                            Her presence in the office has not only improved morale but also provided a unique
+                            conversational piece for clients. Highly recommend their services!</p>
+                    </div>
+                </li>
+                <li
+                    class="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-900 text-gray-100">
+                    <div class="flex justify-between p-4">
+                        <div class="flex space-x-4">
+                            <div>
+                                <img src="public/reviews/3.jpeg" alt=""
+                                    class="object-cover w-12 h-12 rounded-full bg-gray-500">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Prof. Winifred Clucklesworth</h4>
+                                <span class="text-xs text-gray-400">18 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 text-yellow-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current"
+                                viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                <path
+                                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+                            </svg>
+                            <span class="text-xl font-bold">5.0</span>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-2 text-sm text-gray-400">
+                        <p>Integrating Feather Locklear into my ornithology curriculum has been a game-changer.
+                            Feather's ability to engage with students and assist in practical
+                            demonstrations
+                            has elevated our educational experience. An excellent investment for any academic
+                            institution!
+                        </p>
+                    </div>
+                </li>
+                <li
+                    class="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-900 text-gray-100">
+                    <div class="flex justify-between p-4">
+                        <div class="flex space-x-4">
+                            <div>
+                                <img src="public/reviews/4.jpeg" alt=""
+                                    class="object-cover w-12 h-12 rounded-full bg-gray-500">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Sir Reginald Clucksworth III</h4>
+                                <span class="text-xs text-gray-400">1 week ago</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 text-yellow-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current"
+                                viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                <path
+                                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+                            </svg>
+                            <span class="text-xl font-bold">5.0</span>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-2 text-sm text-gray-400">
+                        <p>Acquiring Wingston Churchill from The Chicken Markt has profoundly enriched my daily routine.
+                            His
+                            astute observations and dignified presence have transformed my morning walks into
+                            enlightening
+                            discussions. This level of sophistication in a chicken is unparalleled. Five stars without
+                            hesitation!</p>
+                    </div>
+                </li>
+                <li
+                    class="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-900 text-gray-100">
+                    <div class="flex justify-between p-4">
+                        <div class="flex space-x-4">
+                            <div>
+                                <img src="public/reviews/5.jpeg" alt=""
+                                    class="object-cover w-12 h-12 rounded-full bg-gray-500">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Dr. Penelope Peckington</h4>
+                                <span class="text-xs text-gray-400">yesterday</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 text-yellow-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current"
+                                viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                <path
+                                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+                            </svg>
+                            <span class="text-xl font-bold">5.0</span>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-2 text-sm text-gray-400">
+                        <p>As the head of avian studies at Cluckingham University, I have found Flappy Birdman from The
+                            Chicken Markt to be an exceptional addition to our research team. His innate ability to
+                            navigate
+                            complex mazes has provided groundbreaking insights into avian spatial awareness. An
+                            indispensable asset to our department.</p>
+                    </div>
+                </li>
+                <li
+                    class="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-900 text-gray-100">
+                    <div class="flex justify-between p-4">
+                        <div class="flex space-x-4">
+                            <div>
+                                <img src="public/reviews/6.jpeg" alt=""
+                                    class="object-cover w-12 h-12 rounded-full bg-gray-500">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Lord Thaddeus Eggsworth</h4>
+                                <span class="text-xs text-gray-400">few moments ago</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 text-yellow-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current"
+                                viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                <path
+                                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+                            </svg>
+                            <span class="text-xl font-bold">5.0</span>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-2 text-sm text-gray-400">
+                        <p>Since adopting Chickira from The Chicken Markt, my estate has been graced with her melodic
+                            serenades. Her vocal talents have not only entertained guests but have also been featured in
+                            several local productions. The professionalism and care provided by The Chicken Markt are
+                            second
+                            to none. Highly recommend.</p>
+                    </div>
+                </li>
+                <li
+                    class="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-900 text-gray-100">
+                    <div class="flex justify-between p-4">
+                        <div class="flex space-x-4">
+                            <div>
+                                <img src="public/reviews/7.jpeg" alt=""
+                                    class="object-cover w-12 h-12 rounded-full bg-gray-500">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Henrietta Featherbottom</h4>
+                                <span class="text-xs text-gray-400">2 days ago</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 text-yellow-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current"
+                                viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                <path
+                                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+                            </svg>
+                            <span class="text-xl font-bold">5.0</span>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-2 text-sm text-gray-400">
+                        <p>Cluck Norris from The Chicken Markt has become an integral part of our household. His keen
+                            intelligence and martial prowess are matched only by his gentle disposition. Whether he's
+                            demonstrating advanced pecking techniques or offering sage advice, Cluck Norris exceeds all
+                            expectations. An extraordinary service.</p>
+                    </div>
+                </li>
+                <li
+                    class="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-900 text-gray-100">
+                    <div class="flex justify-between p-4">
+                        <div class="flex space-x-4">
+                            <div>
+                                <img src="public/reviews/8.jpeg" alt=""
+                                    class="object-cover w-12 h-12 rounded-full bg-gray-500">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Dr. Percival Plume</h4>
+                                <span class="text-xs text-gray-400">4 days ago</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 text-yellow-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current"
+                                viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                <path
+                                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+                            </svg>
+                            <span class="text-xl font-bold">5.0</span>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-2 text-sm text-gray-400">
+                        <p>Adopting Chick Jagger from The Chicken Markt has revolutionized my research in avian rhythm
+                            and
+                            movement. His impeccable sense of timing and natural flair for dance have provided
+                            invaluable
+                            data for my studies. The Chicken Markt’s dedication to excellence is clearly reflected in
+                            their
+                            extraordinary chickens.</p>
+                    </div>
+                </li>
+                <li
+                    class="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-900 text-gray-100">
+                    <div class="flex justify-between p-4">
+                        <div class="flex space-x-4">
+                            <div>
+                                <img src="public/reviews/9.jpeg" alt=""
+                                    class="object-cover w-12 h-12 rounded-full bg-gray-500">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Lady Beatrix Wingfield</h4>
+                                <span class="text-xs text-gray-400">2 days ago</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 text-yellow-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current"
+                                viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                <path
+                                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+                            </svg>
+                            <span class="text-xl font-bold">5.0</span>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-2 text-sm text-gray-400">
+                        <p>Since introducing Colonel Sanderson into our estate, our social gatherings have taken on a
+                            new
+                            level of sophistication. His charismatic presence and impeccable manners have charmed guests
+                            far
+                            and wide. The Chicken Markt offers an unparalleled service, and I wholeheartedly recommend
+                            them.
+                        </p>
+                    </div>
+                </li>
+                <li
+                    class="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-900 text-gray-100">
+                    <div class="flex justify-between p-4">
+                        <div class="flex space-x-4">
+                            <div>
+                                <img src="public/reviews/10.jpeg" alt=""
+                                    class="object-cover w-12 h-12 rounded-full bg-gray-500">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Professor Alistair Eggleston</h4>
+                                <span class="text-xs text-gray-400">just now</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 text-yellow-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current"
+                                viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                <path
+                                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+                            </svg>
+                            <span class="text-xl font-bold">5.0</span>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-2 text-sm text-gray-400">
+                        <p>The inclusion of Eggward Scissorbeak in our mechanical engineering department has been
+                            nothing
+                            short of revolutionary. His dexterity and problem-solving abilities have inspired a new
+                            generation of students. The Chicken Markt’s commitment to raising exceptional chickens is
+                            evident in every aspect of their service.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <!-- FAQ -->
+        <section class="bg-gray-800 text-gray-100">
+            <div class="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
+                <h2 class="text-2xl font-semibold sm:text-4xl">Frequently Asked Questions</h2>
+                <p class="mt-4 mb-8 text-gray-400">Here are some of the questions we often receive from our customers.
+                    Some may be added if you ask enough :)</p>
+                <div class="space-y-4">
+                    <details class="w-full border rounded-lg">
+                        <summary class="px-4 py-6 focus:outline-none focus-visible:ring-red-400">Can I teach my chicken
+                            tricks?</summary>
+                        <p class="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-400">Absolutely! Our chickens at The Chicken Markt
+                            are known for their intelligence and friendly nature. While we can't guarantee they'll
+                            master advanced calculus, many of our chickens enjoy learning simple tricks like coming when
+                            called or hopping onto your lap. Just remember, patience and treats are key!</p>
+                    </details>
+                    <details class="w-full border rounded-lg">
+                        <summary class="px-4 py-6 focus:outline-none focus-visible:ring-red-400">What should I feed my
+                            new chicken friend?</summary>
+                        <p class="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-400">Your new chicken friend will thrive on a diet
+                            of high-quality chicken feed, fresh vegetables, and the occasional treat. Avoid feeding them
+                            chocolate, avocados, or anything toxic to birds. A happy chicken is a well-fed chicken, so
+                            ensure they have access to fresh water and a balanced diet to keep them clucking joyfully!
+                        </p>
+                    </details>
+                    <details class="w-full border rounded-lg">
+                        <summary class="px-4 py-6 focus:outline-none focus-visible:ring-red-400">Can my chicken sleep in
+                            my bed with me?</summary>
+                        <p class="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-400">While it might sound cozy to snuggle up with
+                            your feathered friend, it's best for both you and your chicken to have separate sleeping
+                            quarters. Chickens need a safe, comfortable space to roost at night, free from disturbances.
+                            Providing them with a proper coop or a designated sleeping area will ensure they get the
+                            rest they need to stay healthy and happy.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+        <!-- What are you waiting for? -->
+        <section class="my-14">
+            <div class="text-center text-3xl mb-5">So, what are you waiting for?</div>
+            <div class="flex flex-wrap justify-center">
+                <button onclick="loadModal('registermodal')"
+                    class="px-8 py-3 m-2 text-lg font-semibold rounded bg-red-400 text-gray-900">Register</button>
+                <button onclick="loadModal('loginmodal')"
+                    class="px-8 py-3 m-2 text-lg border rounded text-gray-50 border-gray-700">Login</button>
+            </div>
+            <div class="flex flex-wrap justify-center">
+                <button @click="page = 'chickens'"
+                    class="px-8 py-3 m-2 text-lg font-semibold rounded bg-orange-300 text-gray-900">View
+                    Chickens</button>
+            </div>
+        </section>
     </section>
 
+    <!-- Legal Notice -->
+    <main x-show="page == 'legal'" class="container mx-auto p-6 text-white">
+        <section class="bg-gray-900 p-6 rounded shadow-md mb-6">
+            <h2 class="text-3xl font-semibold mb-4">Legal Notice</h2>
+            <p class="mb-2">This legal notice (Impressum) is required under German law and provides information about
+                the operator of this website.</p>
+        </section>
+
+        <section class="bg-gray-900 p-6 rounded shadow-md mb-6">
+            <h2 class="text-2xl font-semibold mb-4">Company Information</h2>
+            <p><strong>Company Name:</strong> The Chicken Markt GmbH</p>
+            <p><strong>Registered Office:</strong> Chickenstraße 123, 10115 Berlin, Germany</p>
+            <p><strong>Registration Court:</strong> Amtsgericht Berlin (Charlottenburg)</p>
+            <p><strong>Registration Number:</strong> HRB 123456</p>
+            <p><strong>Managing Director:</strong> Chuck Norris</p>
+            <p><strong>VAT Identification Number:</strong> DE123456789</p>
+        </section>
+
+        <section class="bg-gray-900 p-6 rounded shadow-md mb-6">
+            <h2 class="text-2xl font-semibold mb-4">Contact Information</h2>
+            <p><strong>Phone:</strong> +49 (0) 30 1234567</p>
+            <p><strong>Email:</strong> info@chickenmarkt.de</p>
+            <p><strong>Website:</strong> www.chickenmarkt.de</p>
+        </section>
+
+        <section class="bg-gray-900 p-6 rounded shadow-md mb-6">
+            <h2 class="text-2xl font-semibold mb-4">Dispute Resolution</h2>
+            <p>The European Commission provides a platform for online dispute resolution (ODR): <a
+                    href="https://ec.europa.eu/consumers/odr"
+                    class="text-blue-500">https://ec.europa.eu/consumers/odr</a>. We are not obliged and not willing to
+                participate in a dispute settlement procedure before a consumer arbitration board.</p>
+        </section>
+
+        <section class="bg-gray-900 p-6 rounded shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">Disclaimer</h2>
+            <p>The contents of our pages have been created with the utmost care. However, we cannot guarantee the
+                contents' accuracy, completeness, or topicality. According to statutory provisions, we are furthermore
+                responsible for our own content on these web pages. In this context, please note that we are not obliged
+                to monitor the transmitted or saved information of third parties or investigate circumstances pointing
+                to illegal activity.</p>
+            <p>Our obligations to remove or block the use of information under generally applicable laws remain
+                unaffected by this as per §§ 8 to 10 of the Telemedia Act (TMG).</p>
+        </section>
+    </main>
+
+    <!-- Privacy Policy -->
+    <main x-show="page == 'privacy'" class="container mx-auto p-6 text-white">
+        <section class="bg-gray-900 p-6 rounded shadow-md mb-6">
+            <h2 class="text-3xl font-semibold mb-4">Privacy Policy</h2>
+            <p class="mb-2">We are very delighted that you have shown interest in our enterprise. Data protection is of
+                a particularly high priority for the management of The Chicken Markt GmbH. The use of the Internet pages
+                of The Chicken Markt GmbH is possible without any indication of personal data; however, if a data
+                subject wants to use special enterprise services via our website, processing of personal data could
+                become necessary.</p>
+        </section>
+
+        <section class="bg-gray-900 p-6 rounded shadow-md mb-6">
+            <h2 class="text-2xl font-semibold mb-4">1. Name and Address of the Controller</h2>
+            <p><strong>Controller:</strong></p>
+            <p>The Chicken Markt GmbH</p>
+            <p>Chickenstraße 123</p>
+            <p>10115 Berlin</p>
+            <p>Germany</p>
+            <p>Phone: +49 (0) 30 1234567</p>
+            <p>Email: info@chickenmarkt.de</p>
+        </section>
+
+        <section class="bg-gray-900 p-6 rounded shadow-md mb-6">
+            <h2 class="text-2xl font-semibold mb-4">2. Collection of General Data and Information</h2>
+            <p>The website of The Chicken Markt GmbH collects a series of general data and information when a data
+                subject or automated system calls up the website. This general data and information are stored in the
+                server log files. Collected may be:</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>the browser types and versions used,</li>
+                <li>the operating system used by the accessing system,</li>
+                <li>the website from which an accessing system reaches our website (so-called referrers),</li>
+                <li>the sub-websites,</li>
+                <li>the date and time of access to the Internet site,</li>
+                <li>an Internet protocol address (IP address),</li>
+                <li>the Internet service provider of the accessing system, and</li>
+                <li>any other similar data and information that may be used in the event of attacks on our information
+                    technology systems.</li>
+            </ul>
+        </section>
+
+        <section class="bg-gray-900 p-6 rounded shadow-md mb-6">
+            <h2 class="text-2xl font-semibold mb-4">3. Routine Erasure and Blocking of Personal Data</h2>
+            <p>The data controller shall process and store the personal data of the data subject only for the period
+                necessary to achieve the purpose of storage, or as far as this is granted by the European legislator or
+                other legislators in laws or regulations to which the controller is subject to.</p>
+            <p>If the storage purpose is not applicable, or if a storage period prescribed by the European legislator or
+                another competent legislator expires, the personal data are routinely blocked or erased in accordance
+                with legal requirements.</p>
+        </section>
+
+        <section class="bg-gray-900 p-6 rounded shadow-md mb-6">
+            <h2 class="text-2xl font-semibold mb-4">4. Rights of the Data Subject</h2>
+            <p>Each data subject shall have the right granted by the European legislator to:</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>obtain from the controller the confirmation as to whether or not personal data concerning him or her
+                    are being processed,</li>
+                <li>access to the personal data and information specified in this policy,</li>
+                <li>the rectification of inaccurate personal data concerning him or her without undue delay,</li>
+                <li>the erasure of personal data concerning him or her without undue delay,</li>
+                <li>restrict processing where certain conditions are met,</li>
+                <li>data portability,</li>
+                <li>object to processing of personal data concerning him or her,</li>
+                <li>not to be subject to a decision based solely on automated processing, including profiling, which
+                    produces legal effects concerning him or her or similarly significantly affects him or her.</li>
+            </ul>
+        </section>
+
+        <section class="bg-gray-900 p-6 rounded shadow-md mb-6">
+            <h2 class="text-2xl font-semibold mb-4">5. Legal Basis for Processing</h2>
+            <p>Art. 6(1) lit. a GDPR serves as the legal basis for processing operations for which we obtain consent for
+                a specific processing purpose. If the processing of personal data is necessary for the performance of a
+                contract to which the data subject is party, as is the case, for example, when processing operations are
+                necessary for the supply of goods or to provide any other service, the processing is based on Article
+                6(1) lit. b GDPR.</p>
+        </section>
+
+        <section class="bg-gray-900 p-6 rounded shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">6. Contact Information</h2>
+            <p>If you have any questions about this Privacy Policy, please contact us:</p>
+            <p>The Chicken Markt GmbH</p>
+            <p>Chickenstraße 123</p>
+            <p>10115 Berlin</p>
+            <p>Germany</p>
+            <p>Phone: +49 (0) 30 1234567</p>
+            <p>Email: info@chickenmarkt.de</p>
+        </section>
+    </main>
+
+    <!-- Terms -->
+    <main x-show="page == 'terms'" class="container mx-auto p-6 text-white">
+        <section class="bg-gray-900 p-6 rounded shadow-lg mb-6">
+            <h2 class="text-3xl font-semibold mb-4">Welcome to The Chicken Markt</h2>
+            <p class="mb-2">These terms and conditions outline the rules and regulations for the use of The Chicken
+                Markt's Website.</p>
+            <p class="mb-2">By accessing this website, we assume you accept these terms and conditions. Do not continue
+                to use The Chicken Markt if you do not agree to take all of the terms and conditions stated on this
+                page.</p>
+        </section>
+
+        <section class="bg-gray-900 p-6 rounded shadow-lg mb-6">
+            <h2 class="text-2xl font-semibold mb-4">Definitions</h2>
+            <ul class="list-disc list-inside">
+                <li><strong>Chickens:</strong> Companion chickens provided by The Chicken Markt for non-consumptive
+                    purposes.</li>
+                <li><strong>ChickenDash™:</strong> Delivery service responsible for the transportation of chickens from
+                    The Chicken Markt to the customer.</li>
+                <li><strong>Adoption:</strong> The process of acquiring a chicken from The Chicken Markt for
+                    companionship.</li>
+            </ul>
+        </section>
+
+        <section class="bg-gray-900 p-6 rounded shadow-lg mb-6">
+            <h2 class="text-2xl font-semibold mb-4">Usage of Services</h2>
+            <ul class="list-disc list-inside mb-4">
+                <li>Users must be at least 18 years of age to adopt a chicken or must have the consent of a parent or
+                    legal guardian.</li>
+                <li>Chickens adopted from The Chicken Markt are strictly for companionship purposes and must not be used
+                    for any consumptive activities.</li>
+                <li>Users agree to provide proper care and a nurturing environment for the adopted chickens.</li>
+            </ul>
+        </section>
+
+        <section class="bg-gray-900 p-6 rounded shadow-lg mb-6">
+            <h2 class="text-2xl font-semibold mb-4">Delivery Policy</h2>
+            <p class="mb-4">All deliveries are managed by ChickenDash™, ensuring the safe and timely arrival of your
+                chicken within three business days.</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>In the event that a delivery exceeds three business days, customers are entitled to a full refund
+                    and may retain the chicken.</li>
+                <li>All delivery fees are covered by The Chicken Markt, ensuring no additional costs to the customer.
+                </li>
+            </ul>
+        </section>
+
+        <section class="bg-gray-900 p-6 rounded shadow-lg mb-6">
+            <h2 class="text-2xl font-semibold mb-4">Refund Policy</h2>
+            <p class="mb-4">The Chicken Markt offers a comprehensive refund policy to ensure customer satisfaction:</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>Customers may return a chicken within three months of adoption for a full refund, subject to terms
+                    and conditions.</li>
+                <li>Refunds will be processed upon the safe return of the chicken in good health and condition.</li>
+            </ul>
+        </section>
+
+        <section class="bg-gray-900 p-6 rounded shadow-lg">
+            <h2 class="text-2xl font-semibold mb-4">Changes to Terms</h2>
+            <p>We reserve the right to amend these terms at any time. Customers are encouraged to review this page
+                periodically to stay informed of any updates or changes.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
     <footer class="px-4 pt-8 bg-gray-800 text-gray-400 divide-y">
         <div
             class="container flex flex-wrap items-center justify-center mx-auto space-y-4 sm:justify-between sm:space-y-0 pb-5">
             <div class="flex flex-row pr-3 space-x-4 sm:space-x-8">
-                <img src="public/logo.png" class="w-auto h-14">
+                <img src="public/logo.png" class="w-auto h-14 cursor-pointer"
+                    @click="page = 'home'; window.scrollTo({ top: 0, behavior: 'smooth' })">
                 <ul class="flex flex-wrap items-center space-x-4 sm:space-x-8">
                     <li>
-                        <a href="pages/terms.html">Terms of Use</a>
+                        <button @click="page = 'terms'; window.scrollTo({ top: 0, behavior: 'smooth' })">Terms of
+                            Use</button>
                     </li>
                     <li>
-                        <a href="pages/privacy.html">Privacy</a>
+                        <button
+                            @click="page = 'privacy'; window.scrollTo({ top: 0, behavior: 'smooth' })">Privacy</button>
                     </li>
                 </ul>
             </div>
             <ul class="flex flex-wrap pl-3 space-x-4 sm:space-x-8">
                 <li>
-                    <a href="pages/legal.html">Legal Notice</a>
+                    <button @click="page = 'legal'; window.scrollTo({ top: 0, behavior: 'smooth' })">Legal
+                        Notice</button>
                 </li>
             </ul>
         </div>

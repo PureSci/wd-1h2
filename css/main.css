@@ -54,6 +54,17 @@ input[type="password"],
     animation: MoveBackgroundPosition 6s ease-in-out infinite;
 }
 
+.loved {
+    background-image: repeating-linear-gradient(to right, #a22455 0%, #c82d6b 8%, #c82d6b 18%, #db4f8b 27%, #f78cba 35%, #ffb0d5 40%, #f78cba 50%, #db4f8b 58%, #c82d6b 67%, #b1244f 77%, #bb2d5b 83%, #d44574 88%, #e15386 93%, #a22455 100%);
+    background-size: 150%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 1px rgba(255, 200, 0, .3));
+    animation: MoveBackgroundPosition 6s ease-in-out infinite;
+}
+
+
 @keyframes MoveBackgroundPosition {
     0% {
         background-position: 0% 50%
@@ -66,4 +77,18 @@ input[type="password"],
     100% {
         background-position: 0% 50%
     }
+}
+
+@keyframes infinite-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.animate-infinite-scroll {
+    animation: infinite-scroll 75s linear infinite;
 }
