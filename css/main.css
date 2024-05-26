@@ -92,3 +92,79 @@ input[type="password"],
 .animate-infinite-scroll {
     animation: infinite-scroll 75s linear infinite;
 }
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+.slide-in {
+    animation: slideIn 0.5s forwards;
+}
+
+.slide-out {
+    animation: slideOut 0.5s forwards;
+}
+
+.popup::before {
+    content: "";
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.3);
+    height: 200px;
+    top: 0;
+    width: 50px;
+    /*border-radius: 50%;*/
+    left: -120px;
+    transform: skewX(-30deg);
+}
+
+.animatem::before {
+    animation: slide 1s;
+}
+
+.popup:hover::before {
+    animation: slide 1s;
+}
+
+@keyframes slide {
+
+    0%,
+    100% {
+        left: -120px;
+    }
+
+    50% {
+        left: 100%;
+    }
+}
+
+.popupinner::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0.375rem;
+    top: 0.25rem;
+    bottom: 0.25rem;
+    left: 0.25rem;
+    border-radius: 0.25rem;
+    background-color: rgb(39, 225, 129);
+}

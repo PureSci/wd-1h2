@@ -135,9 +135,60 @@ window.onclick = function (event) {
     }
 }
 
+const popupContainer = document.getElementById('popup-container');
+
+const texts = ["Hot chickens in your area! 🍗🔥",
+    "Chicken Olivia is just 2km away! Let's cluck! 🐔",
+    "Cluck yeah! Fresh chickens spotted nearby! 🐔",
+    "Chick-tastic! Chicken Alfredo is just 5km away! 🐤",
+    "Don’t be a chicken! Click here for fresh clucks! 🐣",
+    "Cluckin’ awesome! Meet Chicken George, only 3km away! 🐥",
+    "Feathers flying! Hot chicks just around the corner! 🐓",
+    "Peck here to find the best chickens in town! 🐔",
+    "Bawk Bawk! Chicken Alfredo is waiting for you! 🐤",
+    "Cluck and roll! Fresh chickens are in the area! 🐣",
+    "Feeling peckish? Find chickens near you now! 🐥",
+    "Don’t wing it! Click here for local chickens! 🐓"];
+
 function startReference() {
     setTimeout(() => {
-
-    }, Math.floor(Math.random() * 50_000) + 10_000);
+        triggerPopup();
+        startReference();
+    }, 10_000 + Math.floor(Math.random() * 50_000));
 }
 startReference();
+
+function triggerPopup() {
+    const popup = document.createElement('div');
+    popup.classList.add('bg-gray-900', "px-8", "py-6", 'rounded', 'shadow', 'slide-in', "rounded", "cursor-pointer");
+    popup.innerHTML = `<p class="popupinner">${texts[Math.floor(Math.random() * texts.length)]}<p>`;
+    popup.addEventListener("animationend", () => {
+        popup.classList.add("popup");
+        popup.classList.add("animatem");
+        setTimeout(() => {
+            popup.classList.remove("animatem");
+        }, 1000);
+    });
+    popupContainer.appendChild(popup);
+
+    const startHideTimer = () => {
+        hideTimeout = setTimeout(() => {
+            popup.classList.remove('slide-in');
+            popup.classList.add('slide-out');
+
+            popup.addEventListener('animationend', () => {
+                popup.remove();
+            });
+        }, 5000);
+    };
+
+    popup.addEventListener('mouseenter', () => {
+        clearTimeout(hideTimeout);
+    });
+
+    popup.addEventListener('mouseleave', () => {
+        startHideTimer();
+    });
+
+    startHideTimer();
+}
