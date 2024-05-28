@@ -161,6 +161,7 @@ startReference();
 function triggerPopup() {
     const popup = document.createElement('div');
     popup.classList.add('bg-gray-900', "px-8", "py-6", 'rounded', 'shadow', 'slide-in', "rounded", "cursor-pointer");
+    popup.setAttribute(`x-on:click`, `page = '${chickens[Math.floor(Math.random() * chickens.length)].path}'`);
     popup.innerHTML = `<p class="popupinner">${texts[Math.floor(Math.random() * texts.length)]}<p>`;
     popup.addEventListener("animationend", () => {
         popup.classList.add("popup");
