@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Chicken Markt</title>
+    <title>The Chicken Market</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
     <link rel="stylesheet" href="css/main.css">
@@ -179,10 +179,13 @@
                 </button>
                 <ul class="items-stretch hidden space-x-3 lg:flex">
                     <li class="flex">
-                        <div @click="page='chickens'" class="flex items-center px-4 -mb-1 text-red-400">Chickens</div>
+                        <div @click="page='chickens'" class="flex items-center px-4 -mb-1 cursor-pointer"
+                            x-bind:class="page =='chickens' ? 'text-red-400' : 'text-gray-100'">Chickens</div>
                     </li>
                     <li class="flex">
-                        <div @click="page='contact'" class="flex items-center px-4 -mb-1">Contact</div>
+                        <div @click="page='quiz'" class="flex items-center px-4 -mb-1 cursor-pointer"
+                            x-bind:class="page =='quiz' ? 'text-red-400' : 'text-gray-100'">The Chicken
+                            Quiz</div>
                     </li>
                 </ul>
             </div>
@@ -234,7 +237,7 @@
                 <h2 class="text-3xl font-bold tracking-tight text-center sm:text-5xl text-gray-50">World's <span
                         class="numberone">Number 1</span>
                     Chicken
-                    Markt
+                    Market
                 </h2>
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"
                     class="cursor-pointer flex gap-2 items-center text-lg justify-center mt-5">
@@ -449,7 +452,7 @@
                         <span class="text-2xl font-bold">5.0</span>
                     </div>
                 </div>
-                <p class="text-gray-400">The Chicken Markt has managed to get over 1 million chickens adopted with a
+                <p class="text-gray-400">The Chicken Market has managed to get over 1 million chickens adopted with a
                     unprecedented
                     satisfaction rate of 100%.</p>
             </div>
@@ -486,7 +489,7 @@
                     </div>
                     <div class="p-4 space-y-2 text-sm text-gray-400">
                         <p>As a leading avian psychologist, I can confidently say that adopting Cluck Norris from The
-                            Chicken Markt has been one of the most rewarding decisions of my career. His exceptional
+                            Chicken Market has been one of the most rewarding decisions of my career. His exceptional
                             intelligence and calm demeanor have made him an invaluable assistant in my research on avian
                             cognitive behavior. Five stars for this remarkable service!</p>
                     </div>
@@ -514,7 +517,7 @@
                         </div>
                     </div>
                     <div class="p-4 space-y-2 text-sm text-gray-400">
-                        <p>The Chicken Markt offers an unparalleled experience in chicken companionship. My acquisition
+                        <p>The Chicken Market offers an unparalleled experience in chicken companionship. My acquisition
                             of
                             Henrietta Plucker has brought an unexpected level of joy and productivity to my law
                             practice.
@@ -576,7 +579,8 @@
                         </div>
                     </div>
                     <div class="p-4 space-y-2 text-sm text-gray-400">
-                        <p>Acquiring Wingston Churchill from The Chicken Markt has profoundly enriched my daily routine.
+                        <p>Acquiring Wingston Churchill from The Chicken Market has profoundly enriched my daily
+                            routine.
                             His
                             astute observations and dignified presence have transformed my morning walks into
                             enlightening
@@ -608,7 +612,7 @@
                     </div>
                     <div class="p-4 space-y-2 text-sm text-gray-400">
                         <p>As the head of avian studies at Cluckingham University, I have found Flappy Birdman from The
-                            Chicken Markt to be an exceptional addition to our research team. His innate ability to
+                            Chicken Market to be an exceptional addition to our research team. His innate ability to
                             navigate
                             complex mazes has provided groundbreaking insights into avian spatial awareness. An
                             indispensable asset to our department.</p>
@@ -637,9 +641,9 @@
                         </div>
                     </div>
                     <div class="p-4 space-y-2 text-sm text-gray-400">
-                        <p>Since adopting Chickira from The Chicken Markt, my estate has been graced with her melodic
+                        <p>Since adopting Chickira from The Chicken Market, my estate has been graced with her melodic
                             serenades. Her vocal talents have not only entertained guests but have also been featured in
-                            several local productions. The professionalism and care provided by The Chicken Markt are
+                            several local productions. The professionalism and care provided by The Chicken Market are
                             second
                             to none. Highly recommend.</p>
                     </div>
@@ -667,7 +671,7 @@
                         </div>
                     </div>
                     <div class="p-4 space-y-2 text-sm text-gray-400">
-                        <p>Cluck Norris from The Chicken Markt has become an integral part of our household. His keen
+                        <p>Cluck Norris from The Chicken Market has become an integral part of our household. His keen
                             intelligence and martial prowess are matched only by his gentle disposition. Whether he's
                             demonstrating advanced pecking techniques or offering sage advice, Cluck Norris exceeds all
                             expectations. An extraordinary service.</p>
@@ -696,11 +700,11 @@
                         </div>
                     </div>
                     <div class="p-4 space-y-2 text-sm text-gray-400">
-                        <p>Adopting Chick Jagger from The Chicken Markt has revolutionized my research in avian rhythm
+                        <p>Adopting Chick Jagger from The Chicken Market has revolutionized my research in avian rhythm
                             and
                             movement. His impeccable sense of timing and natural flair for dance have provided
                             invaluable
-                            data for my studies. The Chicken Markt’s dedication to excellence is clearly reflected in
+                            data for my studies. The Chicken Market’s dedication to excellence is clearly reflected in
                             their
                             extraordinary chickens.</p>
                     </div>
@@ -732,7 +736,7 @@
                             new
                             level of sophistication. His charismatic presence and impeccable manners have charmed guests
                             far
-                            and wide. The Chicken Markt offers an unparalleled service, and I wholeheartedly recommend
+                            and wide. The Chicken Market offers an unparalleled service, and I wholeheartedly recommend
                             them.
                         </p>
                     </div>
@@ -763,7 +767,7 @@
                         <p>The inclusion of Eggward Scissorbeak in our mechanical engineering department has been
                             nothing
                             short of revolutionary. His dexterity and problem-solving abilities have inspired a new
-                            generation of students. The Chicken Markt’s commitment to raising exceptional chickens is
+                            generation of students. The Chicken Market’s commitment to raising exceptional chickens is
                             evident in every aspect of their service.</p>
                     </div>
                 </li>
@@ -777,15 +781,18 @@
                     Some may be added if you ask enough :)</p>
                 <div class="space-y-4">
                     <details class="w-full border rounded-lg">
-                        <summary class="px-4 py-6 focus:outline-none focus-visible:ring-red-400">Can I teach my chicken
+                        <summary class="px-4 py-6 focus:outline-none focus-visible:ring-red-400 cursor-pointer">Can I
+                            teach my chicken
                             tricks?</summary>
-                        <p class="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-400">Absolutely! Our chickens at The Chicken Markt
+                        <p class="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-400">Absolutely! Our chickens at The Chicken
+                            Market
                             are known for their intelligence and friendly nature. While we can't guarantee they'll
                             master advanced calculus, many of our chickens enjoy learning simple tricks like coming when
                             called or hopping onto your lap. Just remember, patience and treats are key!</p>
                     </details>
                     <details class="w-full border rounded-lg">
-                        <summary class="px-4 py-6 focus:outline-none focus-visible:ring-red-400">What should I feed my
+                        <summary class="px-4 py-6 focus:outline-none focus-visible:ring-red-400 cursor-pointer">What
+                            should I feed my
                             new chicken friend?</summary>
                         <p class="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-400">Your new chicken friend will thrive on a diet
                             of high-quality chicken feed, fresh vegetables, and the occasional treat. Avoid feeding them
@@ -794,7 +801,8 @@
                         </p>
                     </details>
                     <details class="w-full border rounded-lg">
-                        <summary class="px-4 py-6 focus:outline-none focus-visible:ring-red-400">Can my chicken sleep in
+                        <summary class="px-4 py-6 focus:outline-none focus-visible:ring-red-400 cursor-pointer">Can my
+                            chicken sleep in
                             my bed with me?</summary>
                         <p class="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-400">While it might sound cozy to snuggle up with
                             your feathered friend, it's best for both you and your chicken to have separate sleeping
@@ -832,7 +840,7 @@
 
         <section class="bg-gray-900 p-6 rounded shadow-md mb-6">
             <h2 class="text-2xl font-semibold mb-4">Company Information</h2>
-            <p><strong>Company Name:</strong> The Chicken Markt GmbH</p>
+            <p><strong>Company Name:</strong> The Chicken Market GmbH</p>
             <p><strong>Registered Office:</strong> Chickenstraße 123, 10115 Berlin, Germany</p>
             <p><strong>Registration Court:</strong> Amtsgericht Berlin (Charlottenburg)</p>
             <p><strong>Registration Number:</strong> HRB 123456</p>
@@ -843,8 +851,8 @@
         <section class="bg-gray-900 p-6 rounded shadow-md mb-6">
             <h2 class="text-2xl font-semibold mb-4">Contact Information</h2>
             <p><strong>Phone:</strong> +49 (0) 30 1234567</p>
-            <p><strong>Email:</strong> info@chickenmarkt.de</p>
-            <p><strong>Website:</strong> www.chickenmarkt.de</p>
+            <p><strong>Email:</strong> info@chickenMarket.de</p>
+            <p><strong>Website:</strong> www.chickenMarket.de</p>
         </section>
 
         <section class="bg-gray-900 p-6 rounded shadow-md mb-6">
@@ -855,7 +863,7 @@
                 participate in a dispute settlement procedure before a consumer arbitration board.</p>
         </section>
 
-        <section class="bg-gray-900 p-6 rounded shadow-md">
+        <section class="bg-gray-900 p-6 rounded shadow-md mb-6">
             <h2 class="text-2xl font-semibold mb-4">Disclaimer</h2>
             <p>The contents of our pages have been created with the utmost care. However, we cannot guarantee the
                 contents' accuracy, completeness, or topicality. According to statutory provisions, we are furthermore
@@ -865,6 +873,12 @@
             <p>Our obligations to remove or block the use of information under generally applicable laws remain
                 unaffected by this as per §§ 8 to 10 of the Telemedia Act (TMG).</p>
         </section>
+
+        <section class="bg-gray-900 p-6 rounded shadow-md" id="modellicense">
+            <h2 class="text-2xl font-semibold mb-4">Used 3D Models</h2>
+            <!-- Generated by JavaScript -->
+        </section>
+
     </main>
 
     <!-- Privacy Policy -->
@@ -872,8 +886,9 @@
         <section class="bg-gray-900 p-6 rounded shadow-md mb-6">
             <h2 class="text-3xl font-semibold mb-4">Privacy Policy</h2>
             <p class="mb-2">We are very delighted that you have shown interest in our enterprise. Data protection is of
-                a particularly high priority for the management of The Chicken Markt GmbH. The use of the Internet pages
-                of The Chicken Markt GmbH is possible without any indication of personal data; however, if a data
+                a particularly high priority for the management of The Chicken Market GmbH. The use of the Internet
+                pages
+                of The Chicken Market GmbH is possible without any indication of personal data; however, if a data
                 subject wants to use special enterprise services via our website, processing of personal data could
                 become necessary.</p>
         </section>
@@ -881,17 +896,17 @@
         <section class="bg-gray-900 p-6 rounded shadow-md mb-6">
             <h2 class="text-2xl font-semibold mb-4">1. Name and Address of the Controller</h2>
             <p><strong>Controller:</strong></p>
-            <p>The Chicken Markt GmbH</p>
+            <p>The Chicken Market GmbH</p>
             <p>Chickenstraße 123</p>
             <p>10115 Berlin</p>
             <p>Germany</p>
             <p>Phone: +49 (0) 30 1234567</p>
-            <p>Email: info@chickenmarkt.de</p>
+            <p>Email: info@chickenMarket.de</p>
         </section>
 
         <section class="bg-gray-900 p-6 rounded shadow-md mb-6">
             <h2 class="text-2xl font-semibold mb-4">2. Collection of General Data and Information</h2>
-            <p>The website of The Chicken Markt GmbH collects a series of general data and information when a data
+            <p>The website of The Chicken Market GmbH collects a series of general data and information when a data
                 subject or automated system calls up the website. This general data and information are stored in the
                 server log files. Collected may be:</p>
             <ul class="list-disc list-inside mb-4">
@@ -946,34 +961,34 @@
         <section class="bg-gray-900 p-6 rounded shadow-md">
             <h2 class="text-2xl font-semibold mb-4">6. Contact Information</h2>
             <p>If you have any questions about this Privacy Policy, please contact us:</p>
-            <p>The Chicken Markt GmbH</p>
+            <p>The Chicken Market GmbH</p>
             <p>Chickenstraße 123</p>
             <p>10115 Berlin</p>
             <p>Germany</p>
             <p>Phone: +49 (0) 30 1234567</p>
-            <p>Email: info@chickenmarkt.de</p>
+            <p>Email: info@chickenMarket.de</p>
         </section>
     </main>
 
     <!-- Terms -->
     <main x-show="page == 'terms'" class="container mx-auto p-6 text-white">
         <section class="bg-gray-900 p-6 rounded shadow-lg mb-6">
-            <h2 class="text-3xl font-semibold mb-4">Welcome to The Chicken Markt</h2>
+            <h2 class="text-3xl font-semibold mb-4">Welcome to The Chicken Market</h2>
             <p class="mb-2">These terms and conditions outline the rules and regulations for the use of The Chicken
-                Markt's Website.</p>
+                Market's Website.</p>
             <p class="mb-2">By accessing this website, we assume you accept these terms and conditions. Do not continue
-                to use The Chicken Markt if you do not agree to take all of the terms and conditions stated on this
+                to use The Chicken Market if you do not agree to take all of the terms and conditions stated on this
                 page.</p>
         </section>
 
         <section class="bg-gray-900 p-6 rounded shadow-lg mb-6">
             <h2 class="text-2xl font-semibold mb-4">Definitions</h2>
             <ul class="list-disc list-inside">
-                <li><strong>Chickens:</strong> Companion chickens provided by The Chicken Markt for non-consumptive
+                <li><strong>Chickens:</strong> Companion chickens provided by The Chicken Market for non-consumptive
                     purposes.</li>
                 <li><strong>ChickenDash™:</strong> Delivery service responsible for the transportation of chickens from
-                    The Chicken Markt to the customer.</li>
-                <li><strong>Adoption:</strong> The process of acquiring a chicken from The Chicken Markt for
+                    The Chicken Market to the customer.</li>
+                <li><strong>Adoption:</strong> The process of acquiring a chicken from The Chicken Market for
                     companionship.</li>
             </ul>
         </section>
@@ -983,7 +998,8 @@
             <ul class="list-disc list-inside mb-4">
                 <li>Users must be at least 18 years of age to adopt a chicken or must have the consent of a parent or
                     legal guardian.</li>
-                <li>Chickens adopted from The Chicken Markt are strictly for companionship purposes and must not be used
+                <li>Chickens adopted from The Chicken Market are strictly for companionship purposes and must not be
+                    used
                     for any consumptive activities.</li>
                 <li>Users agree to provide proper care and a nurturing environment for the adopted chickens.</li>
             </ul>
@@ -996,14 +1012,14 @@
             <ul class="list-disc list-inside mb-4">
                 <li>In the event that a delivery exceeds three business days, customers are entitled to a full refund
                     and may retain the chicken.</li>
-                <li>All delivery fees are covered by The Chicken Markt, ensuring no additional costs to the customer.
+                <li>All delivery fees are covered by The Chicken Market, ensuring no additional costs to the customer.
                 </li>
             </ul>
         </section>
 
         <section class="bg-gray-900 p-6 rounded shadow-lg mb-6">
             <h2 class="text-2xl font-semibold mb-4">Refund Policy</h2>
-            <p class="mb-4">The Chicken Markt offers a comprehensive refund policy to ensure customer satisfaction:</p>
+            <p class="mb-4">The Chicken Market offers a comprehensive refund policy to ensure customer satisfaction:</p>
             <ul class="list-disc list-inside mb-4">
                 <li>Customers may return a chicken within three months of adoption for a full refund, subject to terms
                     and conditions.</li>
@@ -1020,62 +1036,23 @@
 
     <!-- Chickens (list) -->
     <main x-show="page == 'chickens'" class="flex items-center flex-col mx-5 mt-5">
-        <h2 class="text-3xl font-extrabold text-gray-100 mb-6 text-center">Our Products</h2>
-        <div class="grid gap-6 grid-cols-4 w-fit">
-            <!-- create with js -->
-            <div class="bg-white shadow-md rounded-xl max-w-sm dark:bg-gray-900 dark:border-gray-700">
-                <div class="px-8 pt-8 pb-5"><img class="rounded-2xl cursor-pointer"
-                        src="https://i.ibb.co/KqdgGY4/cosmetic-packaging-mockup-1150-40280.webp">
-                </div>
-                <div class="px-5 pb-5">
-                    <div class="cursor-pointer">
-                        <h3 class="text-gray-900 font-semibold text-xl tracking-tight dark:text-white">Leo: The Smartest
-                            Chicken in the World</h3>
-                    </div>
-                    <div class="flex items-center mt-2.5 mb-2">
-                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                            </path>
-                        </svg>
-                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                            </path>
-                        </svg>
-                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                            </path>
-                        </svg>
-                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                            </path>
-                        </svg>
-                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                            </path>
-                        </svg>
-                        <span
-                            class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <span class="text-3xl font-bold text-gray-900 dark:text-white flex"><span
-                                class="text-base top-[-0.75px]">€</span>599</span>
-                        <div
-                            class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            Add to cart</div>
-                    </div>
-                </div>
-            </div>
+        <h2 class="text-3xl font-extrabold text-gray-100 mb-6 text-center">Our Lovely Chickens</h2>
+        <div class="grid gap-6 grid-cols-4 w-fit" id="productsgrid">
+            <!-- created with js -->
         </div>
+        <section class="pb-6 pt-10 bg-gray-800 text-gray-50 w-[1300px]">
+            <div class="container mx-auto flex justify-between p-4 space-y-8 flex-row">
+                <div class="flex flex-col space-y-4 text-center lg:text-left">
+                    <h1 class="text-5xl font-bold leading-none">Can't decide?</h1>
+                    <p class="text-lg">Take our fun and interactive chicken quiz to discover the perfect feathered
+                        friend for you!</p>
+                </div>
+                <button type="button"
+                    class="w-fit px-6 py-2 font-semibold bg-blue-700 hover:bg-blue-800 text-white rounded-md"
+                    @click="page = 'quiz'">The
+                    Chicken Quiz</button>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -1087,23 +1064,25 @@
                     @click="page = 'home'; window.scrollTo({ top: 0, behavior: 'smooth' })">
                 <ul class="flex flex-wrap items-center space-x-4 sm:space-x-8">
                     <li>
-                        <button @click="page = 'terms'; window.scrollTo({ top: 0, behavior: 'smooth' })">Terms of
+                        <button @click="page = 'terms'; window.scrollTo({ top: 0, behavior: 'smooth' })"
+                            x-bind:class="page =='terms' ? 'text-red-400' : 'text-gray-400'">Terms of
                             Use</button>
                     </li>
                     <li>
-                        <button
-                            @click="page = 'privacy'; window.scrollTo({ top: 0, behavior: 'smooth' })">Privacy</button>
+                        <button @click="page = 'privacy'; window.scrollTo({ top: 0, behavior: 'smooth' })"
+                            x-bind:class="page =='privacy' ? 'text-red-400' : 'text-gray-400'">Privacy</button>
                     </li>
                 </ul>
             </div>
             <ul class="flex flex-wrap pl-3 space-x-4 sm:space-x-8">
                 <li>
-                    <button @click="page = 'legal'; window.scrollTo({ top: 0, behavior: 'smooth' })">Legal
+                    <button @click="page = 'legal'; window.scrollTo({ top: 0, behavior: 'smooth' })"
+                        x-bind:class="page =='legal' ? 'text-red-400' : 'text-gray-400'">Legal
                         Notice</button>
                 </li>
             </ul>
         </div>
-        <div class="py-6 text-sm text-center text-gray-400">© 2016-2024 The Chicken Markt GmbH. All rights reserved.
+        <div class="py-6 text-sm text-center text-gray-400">© 2016-2024 The Chicken Market GmbH. All rights reserved.
         </div>
     </footer>
 

@@ -193,3 +193,148 @@ function triggerPopup() {
 
     startHideTimer();
 }
+
+document.getElementById('productsgrid').innerHTML += chickens.map(chicken => {
+    return `<div class="bg-white shadow-md rounded-xl max-w-sm dark:bg-gray-900 dark:border-gray-700">
+    <div class="px-8 pt-8 pb-5"><img class="rounded-2xl cursor-pointer" @click="page = '${chicken.path}'"
+            src="chickens/${chicken.path}/1.png">
+    </div>
+    <div class="px-5 pb-5">
+        <div class="cursor-pointer" @click="page = '${chicken.path}'">
+            <h3 class="text-gray-900 font-semibold text-xl tracking-tight dark:text-white">${chicken.name}</h3>
+            <p class="text-gray-600 text-sm mt-1 dark:text-gray-300">${chicken.shortDescription}</p>
+        </div>
+        <div class="flex items-center mt-2.5 mb-2">
+            <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                </path>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                </path>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                </path>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                </path>
+            </svg>
+            <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                </path>
+            </svg>
+            <span
+                class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-1">5.0</span>
+        </div>
+        <div class="flex items-center justify-between">
+            <span class="text-3xl font-bold text-gray-900 dark:text-white flex"><span
+                    class="text-base top-[-0.75px]">€</span>${chicken.price}</span>
+            <div
+                class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Add to cart</div>
+        </div>
+    </div>
+</div>`;
+}).join("\n");
+
+const licenseElement = document.getElementById("modellicense");
+chickens.map(chicken => {
+    // create new element with chickne.copyright
+    const element = document.createElement('p');
+    element.innerHTML = `<a href="${chicken.copyright.source}" target="_blank" class="text-blue-500">${chicken.copyright.name}</a> by <a href="${chicken.copyright.authorLink}" target="_blank" class="text-blue-500">${chicken.copyright.author}</a> [<a href="${chicken.copyright.licenseLink}" target="_blank" class="text-blue-500">${chicken.copyright.license}</a>] via <a href="${chicken.copyright.source}" target="_blank" class="text-blue-500">Poly Pizza</a> (${chicken.name})`;
+    licenseElement.appendChild(element);
+});
+
+function findSuitableChicken(choices) {
+    const counts = { a: 0, b: 0, c: 0, d: 0 };
+
+    choices.slice(0, 4).forEach(choice => {
+        counts[choice]++;
+    });
+
+    const maxChoice = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
+
+    const chickenMap = {
+        'a-a': {
+            path: 'leo',
+            reason: 'You value intelligence and wit, enjoy mental exercises, and love challenging entertainment. Leo, with his remarkable problem-solving skills and interactive communication abilities, is the perfect intellectual companion for you.'
+        },
+        'b-a': {
+            path: 'cluck_norris',
+            reason: 'You appreciate bravery and strength, love physical activities, and enjoy action-packed entertainment. Cluck Norris, with his martial arts mastery and mission to protect the innocent, is the ideal heroic companion for you.'
+        },
+        'c-a': {
+            path: 'eggward',
+            reason: 'You value sophistication and refinement, enjoy creative activities, and love quiet, reflective mornings. Eggward, with his artistic inclinations and cultured disposition, is the perfect elegant companion for you.'
+        },
+        'd-a': {
+            path: 'chickira',
+            reason: 'You are full of energy, enjoy lively music and dancing, and love vibrant entertainment. Chickira, with her rhythmic movements and joyful demeanor, is the perfect energetic companion for you.'
+        },
+        'a-b': {
+            path: 'destroyer_of_worlds',
+            reason: 'You love epic adventures and power, enjoying tales of grandeur and domination. Destroyer of Worlds, with her powerful presence and epic history, is the perfect companion for those who seek excitement and thrill.'
+        },
+        'b-b': {
+            path: 'jeff',
+            reason: 'You enjoy laid-back activities and appreciate calmness and presence. Jeff, with his majestic physique and gentle nature, is the perfect relaxed and endearing companion for you.'
+        },
+        'c-b': {
+            path: 'ducktor_who',
+            reason: 'You are intrigued by mysteries and enjoy uncovering secrets. Ducktor Who, with his enigmatic background and intriguing presence, is the perfect companion for those who love a good mystery.'
+        },
+        'd-b': {
+            path: 'oleggvia',
+            reason: 'You love dreaming about future possibilities and appreciate potential. Ol-Egg-Via Rodrigo, with her promise and talent, is the perfect companion for those who believe in the future and potential.'
+        },
+        'a-c': {
+            path: 'leo',
+            reason: 'You value intelligence and wit, enjoy mental exercises, and love challenging entertainment. Leo, with his remarkable problem-solving skills and interactive communication abilities, is the perfect intellectual companion for you.'
+        },
+        'b-c': {
+            path: 'cluck_norris',
+            reason: 'You appreciate bravery and strength, love physical activities, and enjoy action-packed entertainment. Cluck Norris, with his martial arts mastery and mission to protect the innocent, is the ideal heroic companion for you.'
+        },
+        'c-c': {
+            path: 'eggward',
+            reason: 'You value sophistication and refinement, enjoy creative activities, and love quiet, reflective mornings. Eggward, with his artistic inclinations and cultured disposition, is the perfect elegant companion for you.'
+        },
+        'd-c': {
+            path: 'chickira',
+            reason: 'You are full of energy, enjoy lively music and dancing, and love vibrant entertainment. Chickira, with her rhythmic movements and joyful demeanor, is the perfect energetic companion for you.'
+        },
+        'a-d': {
+            path: 'destroyer_of_worlds',
+            reason: 'You love epic adventures and power, enjoying tales of grandeur and domination. Destroyer of Worlds, with her powerful presence and epic history, is the perfect companion for those who seek excitement and thrill.'
+        },
+        'b-d': {
+            path: 'jeff',
+            reason: 'You enjoy laid-back activities and appreciate calmness and presence. Jeff, with his majestic physique and gentle nature, is the perfect relaxed and endearing companion for you.'
+        },
+        'c-d': {
+            path: 'ducktor_who',
+            reason: 'You are intrigued by mysteries and enjoy uncovering secrets. Ducktor Who, with his enigmatic background and intriguing presence, is the perfect companion for those who love a good mystery.'
+        },
+        'd-d': {
+            path: 'oleggvia',
+            reason: 'You love dreaming about future possibilities and appreciate potential. Ol-Egg-Via Rodrigo, with her promise and talent, is the perfect companion for those who believe in the future and potential.'
+        }
+    };
+
+    const question5Choice = choices[4];
+
+    const key = `${maxChoice}-${question5Choice}`;
+    return chickenMap[key];
+}
