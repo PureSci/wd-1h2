@@ -338,3 +338,44 @@ function findSuitableChicken(choices) {
     const key = `${maxChoice}-${question5Choice}`;
     return chickenMap[key];
 }
+
+const chickensS = [
+    "Chicken Breast",
+    "Chicken Wings",
+    "Chicken Thighs",
+    "Chicken Drumsticks",
+    "Chicken Nuggets",
+    "Grilled Chicken",
+    "Fried Chicken",
+    "Chicken Soup",
+    // add more chicken products as needed
+];
+
+function filterChickens() {
+    const input = document.getElementById('search').value.toLowerCase();
+    const dropdown = document.getElementById('dropdown');
+    dropdown.innerHTML = '';
+    dropdown.classList.remove('hidden');
+    const filteredChickens = chickensS.filter(chicken => chicken.toLowerCase().includes(input));
+    if (input === '') {
+        dropdown.classList.add('hidden');
+    } else {
+        filteredChickens.forEach(chicken => {
+            const li = document.createElement('li');
+            li.textContent = chicken;
+            li.classList.add('px-4', 'py-2', 'cursor-pointer', 'hover:bg-gray-700');
+            li.onclick = () => {
+                document.getElementById('search').value = chicken;
+                dropdown.classList.add('hidden');
+            };
+            dropdown.appendChild(li);
+        });
+    }
+}
+
+// Hide dropdown when clicking outside
+document.addEventListener('click', (e) => {
+    if (!document.querySelector('.relative').contains(e.target)) {
+        document.getElementById('dropdown').classList.add('hidden');
+    }
+});
