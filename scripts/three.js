@@ -12,12 +12,12 @@ function render3D(model, container) {
     let pauseTimeout;
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, 1000 / 700, 0.1, 1000);
-    camera.position.set(6, 3, 10);
+    const camera = new THREE.PerspectiveCamera();
+    camera.position.set(15, 3, 10);
 
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setClearColor(0x000000, 0);
-    renderer.setSize(1000, 700);
+    renderer.setSize(container.clientWidth, container.clientWidth);
     container.appendChild(renderer.domElement);
 
     const ambientLight = new THREE.AmbientLight(0x404040);
@@ -41,7 +41,7 @@ function render3D(model, container) {
     const loader = new GLTFLoader();
     loader.load(model, function (gltf) {
         gltf.scene.rotation.y = THREE.MathUtils.degToRad(-90);
-        gltf.scene.position.y = -3.5;
+        gltf.scene.position.y = -5.5;
         scene.add(gltf.scene);
         render();
         let clock = new THREE.Clock();
@@ -52,9 +52,9 @@ function render3D(model, container) {
             if (!isPaused) {
                 const elapsedTime = clock.getElapsedTime();
 
-                gltf.scene.rotation.y += 0.005;
+                gltf.scene.rotation.y += 0.002;
 
-                const positionDelta = Math.sin(elapsedTime) * 0.01;
+                const positionDelta = Math.sin(elapsedTime) * 0.005;
                 gltf.scene.position.y += positionDelta * direction;
             }
             controls.update();
@@ -82,3 +82,5 @@ function render3D(model, container) {
         pauseAnimation();
     });
 }
+
+render3D('chickens/ducktor_who/model.glb', document.getElementById('ducktor_who_active'));

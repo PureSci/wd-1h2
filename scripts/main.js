@@ -339,24 +339,12 @@ function findSuitableChicken(choices) {
     return chickenMap[key];
 }
 
-const chickensS = [
-    "Chicken Breast",
-    "Chicken Wings",
-    "Chicken Thighs",
-    "Chicken Drumsticks",
-    "Chicken Nuggets",
-    "Grilled Chicken",
-    "Fried Chicken",
-    "Chicken Soup",
-    // add more chicken products as needed
-];
-
 function filterChickens() {
     const input = document.getElementById('search').value.toLowerCase();
     const dropdown = document.getElementById('dropdown');
     dropdown.innerHTML = '';
     dropdown.classList.remove('hidden');
-    const filteredChickens = chickensS.filter(chicken => chicken.toLowerCase().includes(input));
+    const filteredChickens = chickens.filter(chicken => chicken.name.toLowerCase().includes(input));
     if (input === '') {
         dropdown.classList.add('hidden');
     } else {
@@ -370,6 +358,12 @@ function filterChickens() {
             };
             dropdown.appendChild(li);
         });
+        if (filteredChickens.length === 0) {
+            const li = document.createElement('li');
+            li.textContent = 'No chickens found';
+            li.classList.add('px-4', 'py-2');
+            dropdown.appendChild(li);
+        }
     }
 }
 
@@ -379,3 +373,5 @@ document.addEventListener('click', (e) => {
         document.getElementById('dropdown').classList.add('hidden');
     }
 });
+
+render3D('chickens/ducktor_who/model.glb', document.getElementById('ducktor_who_active'));

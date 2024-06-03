@@ -121,9 +121,9 @@ const chickens = [
             "source": "https://poly.pizza/m/0ylMw3Mzedx",
         },
         "path": "oleggvia",
-        "name": "Ol-Egg-Via Rodrigo",
+        "name": "Ol-Egg-Via",
         "shortDescription": "The Future Star",
-        "description": "Introducing Ol-Egg-via Rodrigo, the unhatched prodigy of The Chicken Markt. This exceptional egg is poised to become a legendary companion, embodying the potential of brilliance and charm. Named in honor of the acclaimed singer and songwriter Olivia Rodrigo, Ol-Egg-via Rodrigo represents the perfect blend of promise and talent, waiting to hatch and bring unparalleled joy into your life.</br></br>Ol-Egg-via Rodrigo is carefully nurtured in a controlled environment to ensure optimal health and development. With a pedigree of superior lineage, this egg is destined to become a remarkable chicken, possessing the intelligence, sociability, and charisma that our market is renowned for. By adopting Ol-Egg-via Rodrigo, you are investing in a future filled with companionship and delightful surprises, as this egg hatches into the star it is meant to be.",
+        "description": "Introducing Ol-Egg-via, the unhatched prodigy of The Chicken Markt. This exceptional egg is poised to become a legendary companion, embodying the potential of brilliance and charm. Named in honor of the acclaimed singer and songwriter Olivia Rodrigo, Ol-Egg-via Rodrigo represents the perfect blend of promise and talent, waiting to hatch and bring unparalleled joy into your life.</br></br>Ol-Egg-via Rodrigo is carefully nurtured in a controlled environment to ensure optimal health and development. With a pedigree of superior lineage, this egg is destined to become a remarkable chicken, possessing the intelligence, sociability, and charisma that our market is renowned for. By adopting Ol-Egg-via Rodrigo, you are investing in a future filled with companionship and delightful surprises, as this egg hatches into the star it is meant to be.",
         "imageCount": 1,
         "price": 129
     },

@@ -20,7 +20,7 @@
 </head>
 
 <body id="body" style="margin:0; width: 100%; height:100%" class="bg-gray-800" x-data="{
-    page:'home'
+    page:'ducktor_who'
 }">
     <div id="errorModal" class="modal z-10">
         <div
@@ -92,7 +92,7 @@
     <div id="registermodal" class="modal">
         <div class="p-6 bg-gray-800 text-gray-50 h-fit rounded-md">
             <div class="container flex flex-col mx-auto space-y-6">
-                <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-900">
+                <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-900 py-12 px-10">
                     <div class="space-y-2 col-span-full lg:col-span-1">
                         <p class="font-medium">Profile</p>
                     </div>
@@ -122,7 +122,7 @@
                         </div>
                     </div>
                 </fieldset>
-                <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-900">
+                <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-900 py-12 px-10">
                     <div class="space-y-2 col-span-full lg:col-span-1">
                         <p class="font-medium">Personal Information</p>
                         <p class="text-xs">Give us some real information about yourself so we can send your chicken
@@ -202,7 +202,7 @@
                     </span>
                     <input type="search" id="search" name="Search" placeholder="Search a chicken..."
                         class="w-32 py-2 pl-10 text-sm outline-gray-400 outline outline-1 rounded-md sm:w-[45rem] focus:outline-blue-500 bg-gray-800 text-gray-100 focus:bg-gray-900 "
-                        oninput="filterChickens()">
+                        oninput="filterChickens()" autocomplete="off">
                     <ul id="dropdown"
                         class="absolute w-full bg-gray-800 text-gray-100 border border-gray-700 rounded-md hidden"></ul>
                 </div>
@@ -1057,6 +1057,106 @@
             </div>
         </section>
     </main>
+
+    <!-- Chickens (product pages) -->
+    <span x-show="page == 'ducktor_who'" class="leading-normal tracking-normal mx-10 flex" id="chickenpages">
+        <!-- generated with js -->
+        <div class=" rounded-lg overflow-hidden p-10">
+            <div class="flex">
+                <div class="flex-shrink-0 flex flex-col w-2/5 h-full">
+                    <div id="ducktor_who_active" class="outline-gray-300 outline-1 outline rounded-xl">
+
+                        <!--<img class="object-cover" src="chickens/ducktor_who/1.png" alt="Ducktor Who">-->
+                    </div>
+                </div>
+                <div class="p-8">
+                    <h1 class="block mt-1 text-lg leading-tight font-medium text-indigo-500 hover:underline">Ducktor Who
+                    </h1>
+                    <p class="mt-2 text-gray-100">What? How did a duck get here?</p>
+                    <p class="mt-2 text-gray-100">Price: $349</p>
+                    <div class="mt-4">
+                        <span class="text-gray-600 font-medium">Description:</span>
+                        <p class="mt-1 text-gray-100">Introducing Ducktor Who, an enigmatic and intriguing addition
+                            to our lineup at The Chicken Markt. Despite our rigorous verification processes, we are
+                            as perplexed as you are about how Ducktor Who ended up on our website dedicated to
+                            chickens. However, we can assure you that this duck, wrapped in mystery and intrigue, is
+                            unlike any companion you’ve ever encountered.</p>
+                        <p class="mt-1 text-gray-100">Ducktor Who is not only a master of disguise but also brings
+                            an air of sophistication and intellect. His origins remain unknown, and his ability to
+                            seamlessly blend in with our esteemed chickens is both impressive and puzzling. While we
+                            can't fully explain his presence, we guarantee that Ducktor Who offers the same level of
+                            companionship and joy as our finest chickens. Adopt Ducktor Who today and embrace the
+                            delightful confusion and unique companionship that only a mysterious duck in disguise
+                            can provide.</p>
+                    </div>
+                    <div class="mt-6">
+                        <button class="bg-indigo-500 text-white px-4 py-2 rounded-lg">Adopt Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="p-8">
+                <h2 class="text-lg font-semibold text-gray-900">Customer Reviews</h2>
+                <div class="mt-4">
+                    <div class="flex items-center">
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                            </svg>
+                        </div>
+                        <p class="ml-2 text-sm text-gray-200">5 out of 5 stars</p>
+                    </div>
+                    <p class="mt-1 text-sm text-gray-100">"Absolutely love Ducktor Who! Such a unique addition to
+                        our family. Highly recommend!"</p>
+                    <div class="mt-4">
+                        <div class="flex items-center">
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                                </svg>
+                                <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                                </svg>
+                                <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                                </svg>
+                                <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                                </svg>
+                                <svg class="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                                </svg>
+                            </div>
+                            <p class="ml-2 text-sm text-gray-200">4 out of 5 stars</p>
+                        </div>
+                        <p class="mt-1 text-sm text-gray-200">"Ducktor Who is great, but I wish he was a little more
+                            chicken-like."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
 
     <!-- Footer -->
     <footer class="px-4 pt-8 bg-gray-800 text-gray-400 divide-y">
