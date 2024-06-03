@@ -373,5 +373,3 @@ document.addEventListener('click', (e) => {
         document.getElementById('dropdown').classList.add('hidden');
     }
 });
-
-render3D('chickens/ducktor_who/model.glb', document.getElementById('ducktor_who_active'));
