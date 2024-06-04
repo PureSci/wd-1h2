@@ -1063,19 +1063,72 @@
         <!-- generated with js -->
         <div class=" rounded-lg overflow-hidden p-10">
             <div class="flex">
-                <div class="flex-shrink-0 flex flex-col w-2/5 h-full">
-                    <div id="ducktor_who_active" class="outline-gray-300 outline-1 outline rounded-xl">
-
-                        <!--<img class="object-cover" src="chickens/ducktor_who/1.png" alt="Ducktor Who">-->
+                <div class="flex-shrink-0 flex flex-col w-2/5 h-full" x-data="{
+                    image: 0
+                }">
+                    <div id="ducktor_who_active" class="outline-gray-300 outline-1 outline rounded-xl w-[52rem]">
+                        <img x-show="image == 1" class="rounded-xl w-[52rem]" src="chickens/ducktor_who/1.png">
+                        <img x-show="image == 2" class="rounded-xl w-[52rem]" src="chickens/ducktor_who/2.png">
+                        <img x-show="image == 3" class="rounded-xl w-[52rem]" src="chickens/ducktor_who/3.png">
+                    </div>
+                    <div class="flex h-36 gap-5 mt-5">
+                        <img @click="image = 0"
+                            x-bind:class="image == 0 ? 'outline outline-2 outline-white' : 'outline outline-1 outline-gray-500'"
+                            class="w-36 p-4 rounded-xl" src="public/3d_placeholder.png">
+                        <img @click="image = 1" x-bind:class="image == 1 ? 'outline outline-2 outline-white' : ''"
+                            class="w-36 rounded-xl" src="chickens/ducktor_who/1.png">
+                        <img @click="image = 2" x-bind:class="image == 2 ? 'outline outline-2 outline-white' : ''"
+                            class="w-36 rounded-xl" src="chickens/ducktor_who/2.png">
+                        <img @click="image = 3" x-bind:class="image == 3 ? 'outline outline-2 outline-white' : ''"
+                            class="w-36 rounded-xl" src="chickens/ducktor_who/3.png">
                     </div>
                 </div>
-                <div class="p-8">
-                    <h1 class="block mt-1 text-lg leading-tight font-medium text-indigo-500 hover:underline">Ducktor Who
-                    </h1>
-                    <p class="mt-2 text-gray-100">What? How did a duck get here?</p>
-                    <p class="mt-2 text-gray-100">Price: $349</p>
-                    <div class="mt-4">
-                        <span class="text-gray-600 font-medium">Description:</span>
+                <div class="px-8">
+                    <div class="flex items-end">
+                        <h1 class="block mt-1 text-4xl leading-tight font-bold text-red-400">Ducktor
+                            Who
+                        </h1><span class="text-red-400 text-2xl font-bold mb-1">:</span><span
+                            class="ml-2 mb-1 text-xl text-gray-100">What?
+                            How
+                            did a duck
+                            get
+                            here?</span>
+                    </div>
+                    <div class="flex text-gray-100 items-center my-3">
+                        <span class="h-fit mb-[-2.5px] font-semibold pr-[0.375rem]">5.0</span>
+                        <div class="flex items-center h-fit">
+                            <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                            </svg>
+                            <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                            </svg>
+                        </div>
+                        <span class="h-fit mb-[-2.6px] text-indigo-400 font-semibold pl-2">200 ratings</span>
+                    </div>
+                    <!-- <div class="flex gap-3">
+                        <div class="rounded-md bg-red-600 w-fit text-gray-100 font-bold my-5 py-2 px-3">No hidden fees!
+                        </div>
+                        <div class="rounded-md bg-blue-400 text-gray-100 font-bold my-5 py-2 px-3">Free Delivery 🐔🛵
+                        </div>
+                    </div> -->
+                    <p class="mt-2 text-gray-100 flex items-start"><span>€</span><span
+                            class="text-3xl font-bold">349</span><span>00</span></p>
+                    <div class="mt-4 gap-3 flex flex-col">
                         <p class="mt-1 text-gray-100">Introducing Ducktor Who, an enigmatic and intriguing addition
                             to our lineup at The Chicken Markt. Despite our rigorous verification processes, we are
                             as perplexed as you are about how Ducktor Who ended up on our website dedicated to
