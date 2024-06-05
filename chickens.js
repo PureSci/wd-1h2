@@ -12,7 +12,7 @@ const chickens = [
         "name": "Leo",
         "shortDescription": "Smartest Chicken in the World",
         "description": "Meet Leo, the crown jewel of The Chicken Market. Leo is not just a chicken; he is an extraordinary companion with a level of intelligence that surpasses all others in the avian world. Raised with exceptional care and trained to the highest standards, Leo demonstrates remarkable problem-solving skills and interactive communication abilities. His superior intellect is matched by his gentle and sociable nature, making him the perfect addition to any home. Experience the unique joy of adopting Leo, and enjoy the unparalleled companionship that only the smartest chicken can provide.",
-        "imageCount": 4,
+        "imageCount": 3,
         "price": 199
     },
     {
@@ -44,7 +44,7 @@ const chickens = [
         "name": "Destroyer of Worlds",
         "shortDescription": "Hen of Doom",
         "description": "Destroyer of Worlds is a hen like no other. She is a creature of pure chaos and destruction, with a thirst for power that knows no bounds. The Destroyer of Worlds has laid waste to entire civilizations and brought empires to their knees. Her fiery gaze strikes fear into the hearts of all who dare to oppose her. Adopt the Destroyer of Worlds today and witness the awesome power of the Hen of Doom.",
-        "imageCount": 4,
+        "imageCount": 3,
         "price": 249
     },
     {
@@ -60,7 +60,7 @@ const chickens = [
         "name": "Jeff",
         "shortDescription": "Majestic Heavyweight",
         "description": "Introducing Jeff, the esteemed heavyweight champion of The Chicken Market. Jeff is not just any chicken; he is an embodiment of grandeur and presence. With his impressive physique, Jeff commands attention and admiration wherever he goes. Raised with meticulous care, Jeff's robust stature is a testament to his superior diet and relaxed lifestyle. Despite his size, Jeff is a gentle giant, exuding warmth and a laid-back charm that makes him an endearing companion. Adopting Jeff means welcoming a bundle of joy and personality into your home, offering an unparalleled companionship experience that only Jeff, the majestic heavyweight, can provide.",
-        "imageCount": 4,
+        "imageCount": 3,
         "price": 99,
     },
     {

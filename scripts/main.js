@@ -373,3 +373,81 @@ document.addEventListener('click', (e) => {
         document.getElementById('dropdown').classList.add('hidden');
     }
 });
+const ce = document.getElementById("chickenpages")
+for (const chicken of chickens) {
+    const element = document.createElement("div");
+    element.classList.add("rounded-lg", "overflow-hidden", "p-10");
+    element.setAttribute("x-show", `page == '${chicken.path}'`);
+    console.log(element.attributes.getNamedItem("x-show"));
+    const images = [];
+    for (let i = 1; i < chicken.imageCount + 1; i++) {
+        images.push(`<img ${i !== 1 ? `x-show="image == ${i}"` : ""} class="rounded-xl" src="chickens/${chicken.path}/${i}.png">`)
+    }
+    const images2 = [];
+    for (let i = 1; i < chicken.imageCount + 1; i++) {
+        images2.push(`<img @click="image = ${i}" x-bind:class="image == ${i} ? 'outline outline-2 outline-white' : ''" class="w-36 rounded-xl" src="chickens/${chicken.path}/${i}.png">`)
+    }
+    element.innerHTML = ` 
+    <div class="flex">
+        <div class="flex-shrink-0 flex flex-col w-2/5 h-full" x-data="{
+            image: 0
+        }">
+            <div id="${chicken.path}_active" class="outline-gray-300 outline-1 outline rounded-xl flex-shrink-0">
+            ${images.join("")}
+            </div>
+            <div class="flex h-36 gap-5 mt-5">
+                <img @click="image = 0"
+                    x-bind:class="image == 0 ? 'outline outline-2 outline-white' : 'outline outline-1 outline-gray-500'"
+                    class="w-36 p-4 rounded-xl" src="public/3d_placeholder.png">
+                ${images2.join("")}
+            </div>
+        </div>
+        <div class="px-8">
+            <div class="flex items-end">
+                <h1 class="block mt-1 text-4xl leading-tight font-bold text-red-400">${chicken.name}
+                </h1><span class="text-red-400 text-2xl font-bold mb-1">:</span><span
+                    class="ml-2 mb-1 text-xl text-gray-100">${chicken.shortDescription}</span>
+            </div>
+            <div class="flex text-gray-100 items-center my-3">
+                <span class="h-fit mb-[-2.5px] font-semibold pr-[0.375rem]">5.0</span>
+                <div class="flex items-center h-fit">
+                    <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                    </svg>
+                    <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 .587l3.668 7.568L24 9.75l-6 5.851L19.336 24 12 19.885 4.664 24 6 15.601 0 9.75l8.332-1.595L12 .587z" />
+                    </svg>
+                </div>
+                <span class="h-fit mb-[-2.6px] text-indigo-400 font-semibold pl-2">200 ratings</span>
+            </div>
+            <p class="mt-2 text-gray-100 flex items-start"><span>€</span><span
+                    class="text-3xl font-bold">${chicken.price}</span><span>00</span></p>
+            <div class="mt-5 gap-3 flex flex-col text-gray-100">
+                ${chicken.description}
+            </div>
+            <div class="mt-6">
+                <button class="bg-indigo-500 text-white px-5 py-3 rounded-lg flex gap-2 font-semibold"><svg
+                        xmlns="http://www.w3.org/2000/svg" class="w-6"
+                        viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path style="fill: white"
+                            d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zM252 160c0 11 9 20 20 20h44v44c0 11 9 20 20 20s20-9 20-20V180h44c11 0 20-9 20-20s-9-20-20-20H356V96c0-11-9-20-20-20s-20 9-20 20v44H272c-11 0-20 9-20 20z" />
+                    </svg>Add to cart</button>
+            </div>
+        </div>
+    </div>`
+    ce.appendChild(element);
+};
