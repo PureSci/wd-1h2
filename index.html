@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Chicken Market</title>
     <script src="scripts/tailwind.js"></script>
-    <script async src="scripts/es.js"></script>
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" type="image/png" href="public/logo.png">
-    <script type="importmap">
+    <!-- <script type="importmap">
       {
         "imports": {
           "three": "scripts/three.module.js",
@@ -17,7 +16,7 @@
           "three/addons/controls/OrbitControls": "scripts/OrbitControls.js"
         }
       }
-    </script>
+    </script> -->
 </head>
 
 <body id="body" style="margin:0; width: 100%; height:100%" class="bg-gray-800" x-data="{page:'home'}">
@@ -1131,7 +1130,10 @@
 
     <script src="chickens.js"></script>
     <script src="scripts/main.js"></script>
-    <script type="module" src="scripts/three.js"></script>
+    <script src="scripts/three.js"></script>
+    <script src="scripts/GLTFLoader.js"></script>
+    <script src="scripts/OrbitControls.js"></script>
+    <script src="scripts/threePure.js"></script>
     <script src="scripts/alpine.js" defer></script>
 </body>
 
