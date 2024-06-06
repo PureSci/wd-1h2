@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Chicken Market</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script src="scripts/tailwind.js"></script>
+    <script async src="scripts/es.js"></script>
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" type="image/png" href="public/logo.png">
     <script type="importmap">
       {
         "imports": {
-          "three": "https://unpkg.com/three/build/three.module.js",
-          "three/addons/": "https://unpkg.com/three/examples/jsm/"
+          "three": "scripts/three.module.js",
+          "three/addons/loaders/GLTFLoader": "scripts/GLTFLoader.js",
+          "three/addons/controls/OrbitControls": "scripts/OrbitControls.js"
         }
       }
     </script>
@@ -1099,7 +1100,7 @@
     <script src="chickens.js"></script>
     <script src="scripts/main.js"></script>
     <script type="module" src="scripts/three.js"></script>
-    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="scripts/alpine.js" defer></script>
 </body>
 
 </html>

@@ -36,9 +36,10 @@ const chickens = [
     },
     {
         "path": "eggward",
-        "bg": 0x1d81d8,
-        "deg": -90,
-        "campos": [15, 3, 10]
+        "bg": 0xbec832,
+        "deg": 90,
+        "up": 3.5,
+        "campos": [6, 0, 3]
     },
     {
         "path": "ducktor_who",
