@@ -89,9 +89,9 @@ function register() {
     window.location.reload();
 }
 
-function error(content) {
+function error(content, a = true) {
     document.getElementById("errorcontext").innerHTML = content;
-    loadModal("errorModal", true);
+    loadModal("errorModal", a);
 }
 
 function getElement(name, fancyName) {
@@ -110,7 +110,7 @@ async function changePhoto() {
 changePhoto();
 
 async function getCat() {
-    return "https://cataas.com/cat/" + (await (await fetch("https://cataas.com/cat?width=100&height=100&json=true")).json())._id;
+    return `cats/cat${Math.floor(Math.random() * 200)}.png`;
 }
 
 // Modal Handling
@@ -257,6 +257,49 @@ chickens.map(chicken => {
     licenseElement.appendChild(element);
 });
 
+const asdb = {
+    1: "a",
+    2: "b",
+    3: "c",
+    4: "d",
+}
+function findSoulmate({ one, two, three, four, five }) {
+    if ([one, two, three, four, five].some(e => e === null || e < 0)) {
+        error("Please answer all the questions!", false);
+        return;
+    }
+    const soulmate = document.getElementById("soulmate");
+    const mate = findSuitableChicken([asdb[one], asdb[two], asdb[three], asdb[four], asdb[five]]);
+    soulmate.innerHTML = `
+    <div class="flex justify-center">
+                <div
+                    class="text-gray-100 text-5xl font-bold text-center p-6 bg-gray-900 rounded-b-none w-fit rounded-xl">
+                    You got:</div>
+            </div>
+            <div class="flex justify-center">
+                <div class="flex p-10 bg-gray-900 gap-5 rounded-xl w-3/4">
+                    <div class="w-80">
+                        <img class="rounded-xl" src="chickens/${mate.path}/1.png">
+                    </div>
+                    <div class="flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-end">
+                                <div class="block mt-1 text-4xl leading-tight font-bold text-red-400">${mate.name}
+                                </div><span class="text-red-400 text-2xl font-bold mb-1">:</span><span
+                                    class="ml-2 mb-1 text-xl text-gray-100">${mate.shortDescription}</span>
+                            </div>
+                            <div class="text-gray-100 mt-3 ab flex gap-2">${mate.reason}</div>
+                        </div>
+                        <div class="flex justify-end">
+                            <div class="px-12 py-4 bg-blue-700 hover:bg-blue-800 rounded-xl w-fit cursor-pointer font-semibold text-lg"
+                                @click="page = '${mate.path}'">Go
+                                to ${mate.name}!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+}
+
 function findSuitableChicken(choices) {
     const counts = { a: 0, b: 0, c: 0, d: 0 };
 
@@ -269,66 +312,98 @@ function findSuitableChicken(choices) {
     const chickenMap = {
         'a-a': {
             path: 'leo',
+            name: "Leo",
+            "shortDescription": "Smartest Chicken in the World",
             reason: 'You value intelligence and wit, enjoy mental exercises, and love challenging entertainment. Leo, with his remarkable problem-solving skills and interactive communication abilities, is the perfect intellectual companion for you.'
         },
         'b-a': {
             path: 'cluck_norris',
+            "name": "Cluck Norris",
+            "shortDescription": "Chicken of Justice",
             reason: 'You appreciate bravery and strength, love physical activities, and enjoy action-packed entertainment. Cluck Norris, with his martial arts mastery and mission to protect the innocent, is the ideal heroic companion for you.'
         },
         'c-a': {
             path: 'eggward',
+            "name": "Eggward",
+            "shortDescription": "The Artisanal Rooster",
             reason: 'You value sophistication and refinement, enjoy creative activities, and love quiet, reflective mornings. Eggward, with his artistic inclinations and cultured disposition, is the perfect elegant companion for you.'
         },
         'd-a': {
             path: 'chickira',
+            "name": "Chickira",
+            "shortDescription": "The Dancing Diva",
             reason: 'You are full of energy, enjoy lively music and dancing, and love vibrant entertainment. Chickira, with her rhythmic movements and joyful demeanor, is the perfect energetic companion for you.'
         },
         'a-b': {
             path: 'destroyer_of_worlds',
+            "name": "Destroyer of Worlds",
+            "shortDescription": "Hen of Doom",
             reason: 'You love epic adventures and power, enjoying tales of grandeur and domination. Destroyer of Worlds, with her powerful presence and epic history, is the perfect companion for those who seek excitement and thrill.'
         },
         'b-b': {
             path: 'jeff',
+            "name": "Jeff",
+            "shortDescription": "Majestic Heavyweight",
             reason: 'You enjoy laid-back activities and appreciate calmness and presence. Jeff, with his majestic physique and gentle nature, is the perfect relaxed and endearing companion for you.'
         },
         'c-b': {
             path: 'ducktor_who',
+            "name": "Ducktor Who",
+            "shortDescription": "What? How did a duck get here?",
             reason: 'You are intrigued by mysteries and enjoy uncovering secrets. Ducktor Who, with his enigmatic background and intriguing presence, is the perfect companion for those who love a good mystery.'
         },
         'd-b': {
             path: 'oleggvia',
+            "name": "Ol-Egg-Via",
+            "shortDescription": "The Future Star",
             reason: 'You love dreaming about future possibilities and appreciate potential. Ol-Egg-Via Rodrigo, with her promise and talent, is the perfect companion for those who believe in the future and potential.'
         },
         'a-c': {
             path: 'leo',
+            "name": "Leo",
+            "shortDescription": "Smartest Chicken in the World",
             reason: 'You value intelligence and wit, enjoy mental exercises, and love challenging entertainment. Leo, with his remarkable problem-solving skills and interactive communication abilities, is the perfect intellectual companion for you.'
         },
         'b-c': {
             path: 'cluck_norris',
+            "name": "Cluck Norris",
+            "shortDescription": "Chicken of Justice",
             reason: 'You appreciate bravery and strength, love physical activities, and enjoy action-packed entertainment. Cluck Norris, with his martial arts mastery and mission to protect the innocent, is the ideal heroic companion for you.'
         },
         'c-c': {
             path: 'eggward',
+            "name": "Eggward",
+            "shortDescription": "The Artisanal Rooster",
             reason: 'You value sophistication and refinement, enjoy creative activities, and love quiet, reflective mornings. Eggward, with his artistic inclinations and cultured disposition, is the perfect elegant companion for you.'
         },
         'd-c': {
             path: 'chickira',
+            "name": "Chickira",
+            "shortDescription": "The Dancing Diva",
             reason: 'You are full of energy, enjoy lively music and dancing, and love vibrant entertainment. Chickira, with her rhythmic movements and joyful demeanor, is the perfect energetic companion for you.'
         },
         'a-d': {
             path: 'destroyer_of_worlds',
+            "name": "Destroyer of Worlds",
+            "shortDescription": "Hen of Doom",
             reason: 'You love epic adventures and power, enjoying tales of grandeur and domination. Destroyer of Worlds, with her powerful presence and epic history, is the perfect companion for those who seek excitement and thrill.'
         },
         'b-d': {
             path: 'jeff',
+            "name": "Jeff",
+            "shortDescription": "Majestic Heavyweight",
             reason: 'You enjoy laid-back activities and appreciate calmness and presence. Jeff, with his majestic physique and gentle nature, is the perfect relaxed and endearing companion for you.'
         },
         'c-d': {
             path: 'ducktor_who',
+            "name": "Ducktor Who",
+            "shortDescription": "What? How did a duck get here?",
             reason: 'You are intrigued by mysteries and enjoy uncovering secrets. Ducktor Who, with his enigmatic background and intriguing presence, is the perfect companion for those who love a good mystery.'
         },
         'd-d': {
             path: 'oleggvia',
+            "name": "Ol-Egg-Via",
+            "shortDescription": "The Future Star",
             reason: 'You love dreaming about future possibilities and appreciate potential. Ol-Egg-Via Rodrigo, with her promise and talent, is the perfect companion for those who believe in the future and potential.'
         }
     };
@@ -350,10 +425,11 @@ function filterChickens() {
     } else {
         filteredChickens.forEach(chicken => {
             const li = document.createElement('li');
-            li.textContent = `${chicken.name}: ${chicken.shortDescription}`;
-            li.classList.add('px-4', 'py-2', 'cursor-pointer', 'hover:bg-gray-700', "z-10");
+            li.innerHTML = `<b>${chicken.name}:</b> ${chicken.shortDescription}`;
+            li.classList.add('px-4', 'py-2', 'cursor-pointer', 'hover:bg-gray-700', "bg-gray-800", "relative", "z-10");
+            li.setAttribute("x-on:click", `page = '${chicken.path}'`)
             li.onclick = () => {
-                document.getElementById('search').value = `${chicken.name}: ${chicken.shortDescription}`;
+                document.getElementById('search').value = "";
                 dropdown.classList.add('hidden');
             };
             dropdown.appendChild(li);
@@ -381,7 +457,7 @@ for (const chicken of chickens) {
     console.log(element.attributes.getNamedItem("x-show"));
     const images = [];
     for (let i = 1; i < chicken.imageCount + 1; i++) {
-        images.push(`<img ${i !== 1 ? `x-show="image == ${i}"` : ""} class="rounded-xl" src="chickens/${chicken.path}/${i}.png">`)
+        images.push(`<img ${i !== 1 ? `x-show="image == ${i}"` : ""} class="rounded-xl" style="width:100%;" src="chickens/${chicken.path}/${i}.png">`)
     }
     const images2 = [];
     for (let i = 1; i < chicken.imageCount + 1; i++) {
@@ -451,3 +527,89 @@ for (const chicken of chickens) {
     </div>`
     ce.appendChild(element);
 };
+
+const qb = document.getElementById("quizbody");
+const a = {
+    "one": {
+        "color": "blue-500",
+        "question": "What's your ideal way to spend a Saturday afternoon?",
+        "answers": [
+            "Solving puzzles and brain teasers.",
+            "Practicing martial arts or any physical activity.",
+            "Engaging in artistic and creative activities.",
+            "Dancing and enjoying lively music."
+        ]
+    },
+    "two": {
+        "color": "red-500",
+        "question": "Which personality trait do you value most in a companion?",
+        "answers": [
+            "Intelligence and wit.",
+            "Bravery and strength.",
+            "Sophistication and refinement.",
+            "Joyfulness and energy."
+        ]
+    },
+    "three": {
+        "color": "orange-500",
+        "question": "How do you prefer to start your day?",
+        "answers": [
+            "With a challenging mental exercise.",
+            "With a vigorous workout.",
+            "With a quiet, reflective morning.",
+            "With an upbeat dance routine."
+        ]
+    },
+    "four": {
+        "color": "purple-500",
+        "question": "What’s your favorite type of entertainment?",
+        "answers": [
+            "Watching documentaries or solving puzzles.",
+            "Action movies or martial arts shows.",
+            "Visiting art galleries or listening to classical music.",
+            "Attending concerts or dance performances."
+        ]
+    },
+    "five": {
+        "color": "teal-500",
+        "question": "What's your favorite type of adventure?",
+        "answers": [
+            "Exploring the world of mysteries and enigmas.",
+            "Imagining epic fantasy tales.",
+            "Relaxing and enjoying laid-back activities.",
+            "Dreaming about future possibilities."
+        ]
+    }
+};
+let i = 0;
+for (const key of Object.keys(a)) {
+    i++;
+    const o = a[key];
+    qb.innerHTML += `<div class="flex flex-col it">
+<div>
+    <div class="px-6 py-4 bg-${o.color} rounded-xl font-bold text-xl w-fit rounded-b-none">${i}. Question:
+    </div>
+    <div class="px-6 py-4 rounded-xl border-4 border-${o.color} rounded-tl-none border-spacing-2 text-lg rounded-bl-none">
+        ${o.question}
+    </div>
+</div>
+<div class="border-l-${o.color} h-5 border-l-4"></div>
+<div class="flex flex-col">
+    ${o.answers.map((answer, index) => {
+        return `<div class="flex gap-3"><div class="border-l-${o.color} border-l-4"></div><div class="w-full leftside cursor-pointer px-4 py-4 flex items-center gap-4 rounded-xl border-gray-600 border-2"
+        @click="toggle('${key}', ${index + 1})"
+        x-bind:class="${key} == ${index + 1} ? 'selected': (${key} == ${(index + 1) * -1} ? 'selected-reverse': '')">
+        <div class="outline outline-2 outline-gray-600 w-10 h-10 rounded-md flex items-center justify-center"
+            x-bind:class="${key} == ${index + 1} ? 'selectedO': (${key}== ${(index + 1) * -1} ? 'selectedO-reverse' : '')">
+            <div class="bg-green-400 rounded-md"
+                x-bind:class="${key} == ${index + 1} ? 'quadrat' : (${key}== ${(index + 1) * -1} ? 'quadrat-reverse':'')"></div>
+        </div>
+        <div class="h-fit">${answer}</div>
+    </div></div>`
+    }).join(`
+        <div class="border-l-${o.color} h-5 border-l-4"></div>
+    `)}
+    <div class="border-l-${o.color} h-2 border-l-4 rounded-b-md"></div>
+</div>
+</div>`
+}

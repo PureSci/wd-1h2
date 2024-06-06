@@ -5,9 +5,9 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 const chickens = [
     {
         "path": "leo",
-        "bg": 0x1d81d8,
+        "bg": 0x6b6a6a,
         "deg": 90,
-        "up": 5.15,
+        "up": 5.5,
         "campos": [1.4, 1, 0.7]
     },
     {
@@ -26,14 +26,14 @@ const chickens = [
     },
     {
         "path": "jeff",
-        "bg": 0x1d81d8,
+        "bg": 0x00a3b7,
         "deg": 100,
-        "up": 5,
+        "up": 5.5,
         "campos": [0, 0, 7]
     },
     {
         "path": "chickira",
-        "bg": 0x1d81d8,
+        "bg": 0x68493e,
         "deg": 40,
         "up": 10,
         "campos": [150, 0, 500]
@@ -53,9 +53,9 @@ const chickens = [
     },
     {
         "path": "oleggvia",
-        "bg": 0x1d81d8,
+        "bg": 0x502d96,
         "deg": -90,
-        "up": 4.9,
+        "up": 5.4,
         "campos": [0, 0, 2]
     },
 ];
@@ -128,9 +128,6 @@ function render3D(model, container, chicken) {
                 const elapsedTime = clock.getElapsedTime();
 
                 gltf.scene.rotation.y += 0.002;
-
-                const positionDelta = Math.sin(elapsedTime) * 0.005;
-                gltf.scene.position.y += positionDelta * direction;
             }
             controls.update();
             renderer.render(scene, camera);

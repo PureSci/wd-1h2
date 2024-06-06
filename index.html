@@ -818,14 +818,14 @@
         <!-- What are you waiting for? -->
         <section class="my-14">
             <div class="text-center text-3xl mb-5">So, what are you waiting for?</div>
-            <div class="flex flex-wrap justify-center">
+            <!-- <div class="flex flex-wrap justify-center">
                 <button onclick="loadModal('registermodal')"
                     class="px-8 py-3 m-2 text-lg font-semibold rounded bg-red-400 text-gray-900">Register</button>
                 <button onclick="loadModal('loginmodal')"
                     class="px-8 py-3 m-2 text-lg border rounded text-gray-50 border-gray-700">Login</button>
-            </div>
+            </div> -->
             <div class="flex flex-wrap justify-center">
-                <button @click="page = 'chickens'"
+                <button @click="page = 'chickens'; window.scrollTo({ top: 0, behavior: 'smooth' })"
                     class="px-8 py-3 m-2 text-lg font-semibold rounded bg-orange-300 text-gray-900">View
                     Chickens</button>
             </div>
@@ -1062,6 +1062,38 @@
         <!-- generated with js -->
 
     </span>
+
+    <main x-show="page == 'quiz'" class="flex flex-col text-gray-50 items-center" x-data="{
+        one: null,
+        two: null,
+        three: null,
+        four: null,
+        five: null,
+        toggle(e, n) {
+            if(this[e] == n) {
+                this[e] = n * -1;
+                setTimeout(() => {
+                    this[e] = null;
+                }, 500);
+            } else {
+                this[e] = n;
+            }
+        }
+    }">
+        <div class="text-center text-6xl font-bold mt-10">The Chicken Quiz</div>
+        <div class="text-center text-xl font-bold mt-3 mb-10 text-gray-400">Let us find the most suitable chicken for
+            you.</div>
+        <div class="w-3/4 flex flex-wrap justify-center items-start gap-10" id="quizbody">
+            <!-- generated with js -->
+        </div>
+        <div class="cursor-pointer px-20 py-6 glow-on-hover mt-10 font-semibold text-xl" @click="findSoulmate($data)">
+            Find my
+            soulmate!</div>
+        <span id="soulmate" class="flex flex-col align-middle justify-center mt-14">
+
+            <!-- generated with js -->
+        </span>
+    </main>
 
     <!-- Footer -->
     <footer class="px-4 pt-8 bg-gray-800 text-gray-400 divide-y">
