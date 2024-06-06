@@ -350,10 +350,10 @@ function filterChickens() {
     } else {
         filteredChickens.forEach(chicken => {
             const li = document.createElement('li');
-            li.textContent = chicken;
-            li.classList.add('px-4', 'py-2', 'cursor-pointer', 'hover:bg-gray-700');
+            li.textContent = `${chicken.name}: ${chicken.shortDescription}`;
+            li.classList.add('px-4', 'py-2', 'cursor-pointer', 'hover:bg-gray-700', "z-10");
             li.onclick = () => {
-                document.getElementById('search').value = chicken;
+                document.getElementById('search').value = `${chicken.name}: ${chicken.shortDescription}`;
                 dropdown.classList.add('hidden');
             };
             dropdown.appendChild(li);

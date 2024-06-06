@@ -6,14 +6,16 @@ const chickens = [
     {
         "path": "leo",
         "bg": 0x1d81d8,
-        "deg": -90,
-        "campos": [15, 3, 10]
+        "deg": 90,
+        "up": 5.15,
+        "campos": [1.4, 1, 0.7]
     },
     {
         "path": "cluck_norris",
         "bg": 0x1d81d8,
-        "deg": -90,
-        "campos": [15, 3, 10]
+        "deg": 170,
+        "up": -100,
+        "campos": [370, 3, 250]
     },
     {
         "path": "destroyer_of_worlds",
@@ -25,14 +27,16 @@ const chickens = [
     {
         "path": "jeff",
         "bg": 0x1d81d8,
-        "deg": -90,
-        "campos": [15, 3, 10]
+        "deg": 100,
+        "up": 5,
+        "campos": [0, 0, 7]
     },
     {
         "path": "chickira",
         "bg": 0x1d81d8,
-        "deg": -90,
-        "campos": [15, 3, 10]
+        "deg": 40,
+        "up": 10,
+        "campos": [150, 0, 500]
     },
     {
         "path": "eggward",
@@ -51,7 +55,8 @@ const chickens = [
         "path": "oleggvia",
         "bg": 0x1d81d8,
         "deg": -90,
-        "campos": [15, 3, 10]
+        "up": 4.9,
+        "campos": [0, 0, 2]
     },
 ];
 
