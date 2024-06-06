@@ -118,14 +118,10 @@ function render3D(model, container, chicken) {
         gltf.scene.position.y = -5.5 + (chicken.up ? chicken.up : 0);
         scene.add(gltf.scene);
         render();
-        let clock = new THREE.Clock();
-        let direction = 1;
 
         function animate() {
             requestAnimationFrame(animate);
             if (!isPaused) {
-                const elapsedTime = clock.getElapsedTime();
-
                 gltf.scene.rotation.y += 0.002;
             }
             controls.update();
