@@ -278,12 +278,12 @@ function findSoulmate({ one, two, three, four, five }) {
             </div>
             <div class="flex justify-center">
                 <div class="flex p-10 bg-gray-900 gap-5 rounded-xl w-3/4">
-                    <div class="w-80">
-                        <img class="rounded-xl" src="chickens/${mate.path}/1.png">
+                    <div class="w-80 cursor-pointer" @click="page = '${mate.path}'">
+                        <img class="rounded-xl cursor-pointer" src="chickens/${mate.path}/1.png">
                     </div>
                     <div class="flex flex-col justify-between">
                         <div>
-                            <div class="flex items-end">
+                            <div class="flex items-end cursor-pointer" @click="page = '${mate.path}'">
                                 <div class="block mt-1 text-4xl leading-tight font-bold text-red-400">${mate.name}
                                 </div><span class="text-red-400 text-2xl font-bold mb-1">:</span><span
                                     class="ml-2 mb-1 text-xl text-gray-100">${mate.shortDescription}</span>
