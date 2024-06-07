@@ -195,14 +195,14 @@ function triggerPopup() {
 }
 
 document.getElementById('productsgrid').innerHTML += chickens.map(chicken => {
-    return `<div class="bg-white shadow-md rounded-xl max-w-sm dark:bg-gray-900 dark:border-gray-700">
+    return `<div class="shadow-md rounded-xl max-w-sm bg-gray-900 border-gray-700">
     <div class="px-8 pt-8 pb-5"><img class="rounded-2xl cursor-pointer" @click="page = '${chicken.path}'"
             src="chickens/${chicken.path}/1.png">
     </div>
     <div class="px-5 pb-5">
         <div class="cursor-pointer" @click="page = '${chicken.path}'">
-            <h3 class="text-gray-900 font-semibold text-xl tracking-tight dark:text-white">${chicken.name}</h3>
-            <p class="text-gray-600 text-sm mt-1 dark:text-gray-300">${chicken.shortDescription}</p>
+            <h3 class="font-semibold text-xl tracking-tight text-white">${chicken.name}</h3>
+            <p class="text-sm mt-1 text-gray-300">${chicken.shortDescription}</p>
         </div>
         <div class="flex items-center mt-2.5 mb-2">
             <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
@@ -236,13 +236,13 @@ document.getElementById('productsgrid').innerHTML += chickens.map(chicken => {
                 </path>
             </svg>
             <span
-                class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-1">5.0</span>
+                class="text-xs font-semibold mr-2 px-2.5 py-0.5 rounded bg-blue-200 text-blue-800 ml-1">5.0</span>
         </div>
         <div class="flex items-center justify-between">
-            <span class="text-3xl font-bold text-gray-900 dark:text-white flex"><span
+            <span class="text-3xl font-bold text-white flex"><span
                     class="text-base top-[-0.75px]">€</span>${chicken.price}</span>
             <div
-                class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                class="cursor-pointer text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
                 Add to cart</div>
         </div>
     </div>
